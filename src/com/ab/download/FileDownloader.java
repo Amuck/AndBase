@@ -19,10 +19,10 @@ import com.ab.util.AbFileUtil;
 
 // TODO: Auto-generated Javadoc
 /**
- * ÃèÊö£º¶àÏß³ÌÖ§³Ö¶ÏµãĞø´«ÏÂÔØÆ÷.
+ * æè¿°ï¼šå¤šçº¿ç¨‹æ”¯æŒæ–­ç‚¹ç»­ä¼ ä¸‹è½½å™¨.
  *
  * @author zhaoqp
- * @date£º2013-3-14 ÏÂÎç5:00:52
+ * @dateï¼š2013-3-14 ä¸‹åˆ5:00:52
  * @version v1.0
  */
 public class FileDownloader {
@@ -42,7 +42,7 @@ public class FileDownloader {
 	/** The m down file dao. */
 	private DownFileDao mDownFileDao;
 	
-	/** ±¾µØ±£´æÎÄ¼ş. */
+	/** æœ¬åœ°ä¿å­˜æ–‡ä»¶. */
 	private File saveFile;
 	
 	/** The m down file. */
@@ -55,7 +55,7 @@ public class FileDownloader {
 	private boolean flag = true;
 	
 	/**
-	 * ¸üĞÂÖ¸¶¨Ïß³Ì×îºóÏÂÔØµÄÎ»ÖÃ.
+	 * æ›´æ–°æŒ‡å®šçº¿ç¨‹æœ€åä¸‹è½½çš„ä½ç½®.
 	 *
 	 * @param downFile the down file
 	 */
@@ -64,11 +64,11 @@ public class FileDownloader {
 	}
 
 	/**
-	 * ¹¹½¨ÎÄ¼şÏÂÔØÆ÷.
+	 * æ„å»ºæ–‡ä»¶ä¸‹è½½å™¨.
 	 *
 	 * @param context the context
 	 * @param downFile the down file
-	 * @param threadNum ÏÂÔØÏß³ÌÊı
+	 * @param threadNum ä¸‹è½½çº¿ç¨‹æ•°
 	 */
 	public FileDownloader(Context context,DownFile downFile,int threadNum) {
 		try {
@@ -76,14 +76,14 @@ public class FileDownloader {
 			this.mDownFile = downFile;
 			this.mThreadNum = threadNum;
 			mDownFileDao = new DownFileDao(context);
-			// ¹¹½¨±£´æÎÄ¼ş
+			// æ„å»ºä¿å­˜æ–‡ä»¶
 			saveFile = new File(Environment.getExternalStorageDirectory().getPath()+File.separator+AbFileUtil.getDownPathFileDir()+AbFileUtil.getFileNameFromUrl(mDownFile.getDownUrl()));
 			if (!saveFile.getParentFile().exists()){
 				saveFile.getParentFile().mkdirs();
 			}
 			if (!saveFile.exists()){
 				saveFile.createNewFile();
-				//É¾³ıÔ­À´µÄÏÂÔØÊı¾İ
+				//åˆ é™¤åŸæ¥çš„ä¸‹è½½æ•°æ®
 				mDownFileDao.delete(downFile.getDownUrl());
 				
 			}
@@ -93,10 +93,10 @@ public class FileDownloader {
 	}
 	
 	/**
-	 * ¿ªÊ¼ÏÂÔØÎÄ¼ş.
+	 * å¼€å§‹ä¸‹è½½æ–‡ä»¶.
 	 *
-	 * @param listener ¼àÌıÏÂÔØÊıÁ¿µÄ±ä»¯,Èç¹û²»ĞèÒªÁË½âÊµÊ±ÏÂÔØµÄÊıÁ¿,¿ÉÒÔÉèÖÃÎªnull
-	 * @return ÒÑÏÂÔØÎÄ¼ş´óĞ¡
+	 * @param listener ç›‘å¬ä¸‹è½½æ•°é‡çš„å˜åŒ–,å¦‚æœä¸éœ€è¦äº†è§£å®æ—¶ä¸‹è½½çš„æ•°é‡,å¯ä»¥è®¾ç½®ä¸ºnull
+	 * @return å·²ä¸‹è½½æ–‡ä»¶å¤§å°
 	 * @throws Exception the exception
 	 */
 	public void download(DownloadProgressListener listener) throws Exception {
@@ -105,16 +105,16 @@ public class FileDownloader {
 			this.threads.setPriority(7);
 			this.threads.start();
 			this.mDownFileDao.save(mDownFile);
-			// Ñ­»·ÅĞ¶ÏËùÓĞÏß³ÌÊÇ·ñÍê³ÉÏÂÔØ
+			// å¾ªç¯åˆ¤æ–­æ‰€æœ‰çº¿ç¨‹æ˜¯å¦å®Œæˆä¸‹è½½
 			while (flag && mDownFile.getDownLength() <= mDownFile.getTotalLength()) {
 				Thread.sleep(2000);
-				// Èç¹ûÏÂÔØÊ§°Ü,ÔÙÖØĞÂÏÂÔØ
+				// å¦‚æœä¸‹è½½å¤±è´¥,å†é‡æ–°ä¸‹è½½
 				if (mDownFile.getDownLength() == -1) {
-					//ÏÂÔØÊ§°Ü
+					//ä¸‹è½½å¤±è´¥
 					return;
 				}
 				
-				// Ã»¼ä¸ô¼¸ÃëÍ¨ÖªÄ¿Ç°ÒÑ¾­ÏÂÔØÍê³ÉµÄÊı¾İ³¤¶È
+				// æ²¡é—´éš”å‡ ç§’é€šçŸ¥ç›®å‰å·²ç»ä¸‹è½½å®Œæˆçš„æ•°æ®é•¿åº¦
 				if (listener != null){
 					listener.onDownloadSize(mDownFile.getDownLength());
 				}
@@ -128,7 +128,7 @@ public class FileDownloader {
 	}
 
 	/**
-	 * »ñÈ¡HttpÏìÓ¦Í·×Ö¶Î.
+	 * è·å–Httpå“åº”å¤´å­—æ®µ.
 	 *
 	 * @param http the http
 	 * @return the http response header
@@ -145,7 +145,7 @@ public class FileDownloader {
 	}
 
 	/**
-	 * ´òÓ¡HttpÍ·×Ö¶Î.
+	 * æ‰“å°Httpå¤´å­—æ®µ.
 	 *
 	 * @param http the http
 	 */

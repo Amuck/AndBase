@@ -29,7 +29,7 @@ public class AbFragmentPagerAdapter extends FragmentPagerAdapter {
 	}
 
 	/**
-	 * ÃèÊö£º»ñÈ¡ÊıÁ¿.
+	 * æè¿°ï¼šè·å–æ•°é‡.
 	 *
 	 * @return the count
 	 * @see android.support.v4.view.PagerAdapter#getCount()
@@ -40,7 +40,7 @@ public class AbFragmentPagerAdapter extends FragmentPagerAdapter {
 	}
 
 	/**
-	 * ÃèÊö£º»ñÈ¡Ë÷ÒıÎ»ÖÃµÄFragment.
+	 * æè¿°ï¼šè·å–ç´¢å¼•ä½ç½®çš„Fragment.
 	 *
 	 * @param position the position
 	 * @return the item

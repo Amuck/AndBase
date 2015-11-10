@@ -13,10 +13,10 @@ import android.widget.ScrollView;
 /**
  * 
  * Copyright (c) 2012 All rights reserved
- * Ãû³Æ£ºAbPagerScrollView.java 
- * ÃèÊö£ºÓëAbPlayViewÒ»ÆğÊ¹ÓÃ£¬¿É»ìºÏÍÏ¶¯ÊÂ¼ş£¬²»³åÍ»
+ * åç§°ï¼šAbPagerScrollView.java 
+ * æè¿°ï¼šä¸AbPlayViewä¸€èµ·ä½¿ç”¨ï¼Œå¯æ··åˆæ‹–åŠ¨äº‹ä»¶ï¼Œä¸å†²çª
  * @author zhaoqp
- * @date£º2013-5-21 ÏÂÎç3:59:38
+ * @dateï¼š2013-5-21 ä¸‹åˆ3:59:38
  * @version v1.0
  */
 public class AbPagerScrollView extends ScrollView {
@@ -43,13 +43,13 @@ public class AbPagerScrollView extends ScrollView {
     }
 
     /**
-     * ÃèÊö£ºTODO.
+     * æè¿°ï¼šTODO.
      *
      * @param ev the ev
      * @return true, if successful
      * @see android.widget.ScrollView#onInterceptTouchEvent(android.view.MotionEvent)
      * @author: zhaoqp
-     * @date£º2013-6-17 ÉÏÎç9:04:50
+     * @dateï¼š2013-6-17 ä¸Šåˆ9:04:50
      * @version v1.0
      */
     @Override
@@ -63,7 +63,7 @@ public class AbPagerScrollView extends ScrollView {
     class YScrollDetector extends SimpleOnGestureListener {
         
         /**
-         * ÃèÊö£ºTODO.
+         * æè¿°ï¼šTODO.
          *
          * @param e1 the e1
          * @param e2 the e2
@@ -72,7 +72,7 @@ public class AbPagerScrollView extends ScrollView {
          * @return true, if successful
          * @see android.view.GestureDetector.SimpleOnGestureListener#onScroll(android.view.MotionEvent, android.view.MotionEvent, float, float)
          * @author: zhaoqp
-         * @date£º2013-6-17 ÉÏÎç9:04:50
+         * @dateï¼š2013-6-17 ä¸Šåˆ9:04:50
          * @version v1.0
          */
         @Override

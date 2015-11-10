@@ -5,7 +5,7 @@ package com.ab.net;
 
 // TODO: Auto-generated Javadoc
 /**
- * ÃèÊö£ºÊı¾İÏÂÔØµ¥Î».
+ * æè¿°ï¼šæ•°æ®ä¸‹è½½å•ä½.
  *
  * @author zhaoqp
  * @date 2011-12-10
@@ -13,10 +13,10 @@ package com.ab.net;
  */
 public class AbHttpItem { 
 	
-	/** ¼ÇÂ¼µÄµ±Ç°Ë÷Òı. */
+	/** è®°å½•çš„å½“å‰ç´¢å¼•. */
 	public int position;
 	 
- 	/** ÏÂÔØÍê³ÉµÄ»Øµ÷½Ó¿Ú. */
+ 	/** ä¸‹è½½å®Œæˆçš„å›è°ƒæ¥å£. */
     public AbHttpCallback callback; 
 } 
 

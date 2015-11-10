@@ -19,31 +19,31 @@ import com.ab.view.AbOnItemClickListener;
 /**
  * 
  * Copyright (c) 2012 All rights reserved
- * Ãû³Æ£ºCalendarCell.java 
- * ÃèÊö£ºÈÕÀú¿Ø¼şµ¥Ôª¸ñ»æÖÆÀà
+ * åç§°ï¼šCalendarCell.java 
+ * æè¿°ï¼šæ—¥å†æ§ä»¶å•å…ƒæ ¼ç»˜åˆ¶ç±»
  * @author zhaoqp
- * @date£º2013-7-9 ÏÂÎç3:54:16
+ * @dateï¼š2013-7-9 ä¸‹åˆ3:54:16
  * @version v1.0
  */
 public class CalendarCell extends View {
 	
-	// ×ÖÌå´óĞ¡
+	// å­—ä½“å¤§å°
 	private int textSize = 22;
 	
-	// »ù±¾ÔªËØ
+	// åŸºæœ¬å…ƒç´ 
 	private AbOnItemClickListener mOnItemClickListener;
 	private Paint pt = new Paint();
 	private RectF rect = new RectF();
 	
-	//ÏÔÊ¾µÄÎÄ×Ö
+	//æ˜¾ç¤ºçš„æ–‡å­—
 	private String textDateValue = "";
 
-	// µ±Ç°ÈÕÆÚ
+	// å½“å‰æ—¥æœŸ
 	private int iDateYear = 0;
 	private int iDateMonth = 0;
 	private int iDateDay = 0;
 
-	// ²¼¶û±äÁ¿
+	// å¸ƒå°”å˜é‡
 	private boolean isSelected = false;
 	private boolean isActiveMonth = false;
 	private boolean isToday = false;
@@ -51,31 +51,31 @@ public class CalendarCell extends View {
 	private boolean isHoliday = false;
 	private boolean hasRecord = false;
 	
-	//µ±Ç°cellµÄĞòºÅ
+	//å½“å‰cellçš„åºå·
 	private int position = 0;
 
 	public static int ANIM_ALPHA_DURATION = 100;
 	
-	/*±»Ñ¡ÖĞµÄcellÑÕÉ«*/
+	/*è¢«é€‰ä¸­çš„cellé¢œè‰²*/
 	private int selectCellColor = Color.rgb(150, 195, 70);
 	
-	/*×î´ó±³¾°ÑÕÉ«*/
+	/*æœ€å¤§èƒŒæ™¯é¢œè‰²*/
 	private int bgColor = Color.rgb(163,163, 163);
 	
-	/*Êı×ÖÑÕÉ«*/
+	/*æ•°å­—é¢œè‰²*/
 	private int numberColor = Color.rgb(86, 86, 86);
 	
-	/*cell±³¾°ÑÕÉ«*/
+	/*cellèƒŒæ™¯é¢œè‰²*/
 	private int cellColor = Color.WHITE;
 	
-	/*·Ç±¾ÔÂµÄÊı×ÖÑÕÉ«*/
+	/*éæœ¬æœˆçš„æ•°å­—é¢œè‰²*/
 	private int notActiveMonthColor = Color.rgb(178, 178, 178);
 	
-	/*½ñÌìcellÑÕÉ«*/
+	/*ä»Šå¤©cellé¢œè‰²*/
 	private int todayColor = Color.rgb(150, 200, 220);
 	
 
-	// ¹¹Ôìº¯Êı
+	// æ„é€ å‡½æ•°
 	public CalendarCell(Context context, int position,int iWidth, int iHeight) {
 		super(context);
 		setFocusable(true);
@@ -84,7 +84,7 @@ public class CalendarCell extends View {
 	}
 
 	/**
-	 * ÃèÊö£º»ñÈ¡Õâ¸öCellµÄÈÕÆÚ
+	 * æè¿°ï¼šè·å–è¿™ä¸ªCellçš„æ—¥æœŸ
 	 * @return
 	 */
 	public Calendar getThisCellDate() {
@@ -98,7 +98,7 @@ public class CalendarCell extends View {
 
 	/**
 	 * 
-	 * ÃèÊö£ºÉèÖÃÕâ¸öCellµÄÈÕÆÚ
+	 * æè¿°ï¼šè®¾ç½®è¿™ä¸ªCellçš„æ—¥æœŸ
 	 * @param iYear
 	 * @param iMonth
 	 * @param iDay
@@ -122,7 +122,7 @@ public class CalendarCell extends View {
 	}
 
 	/**
-	 * ÃèÊö£ºÖØÔØ»æÖÆ·½·¨
+	 * æè¿°ï¼šé‡è½½ç»˜åˆ¶æ–¹æ³•
 	 * @see android.view.View#onDraw(android.graphics.Canvas)
 	 */
 	@Override
@@ -144,7 +144,7 @@ public class CalendarCell extends View {
 	}
 
 	/**
-	 * ÃèÊö£º»æÖÆÈÕÀú·½¸ñ
+	 * æè¿°ï¼šç»˜åˆ¶æ—¥å†æ–¹æ ¼
 	 * @param canvas
 	 * @param bFocused
 	 */
@@ -160,7 +160,7 @@ public class CalendarCell extends View {
 	}
 
 	/**
-	 * ÃèÊö£º»æÖÆÈÕÀúÖĞµÄÊı×Ö
+	 * æè¿°ï¼šç»˜åˆ¶æ—¥å†ä¸­çš„æ•°å­—
 	 * @param canvas
 	 */
 	public void drawDayNumber(Canvas canvas) {
@@ -183,14 +183,14 @@ public class CalendarCell extends View {
 	}
 
 	/**
-	 * ÃèÊö£ºµÃµ½×ÖÌå¸ß¶È
+	 * æè¿°ï¼šå¾—åˆ°å­—ä½“é«˜åº¦
 	 */
 	private int getTextHeight() {
 		return (int) (-pt.ascent() + pt.descent());
 	}
 
 	/**
-	 * ÃèÊö£º¸ù¾İÌõ¼ş·µ»Ø²»Í¬ÑÕÉ«Öµ
+	 * æè¿°ï¼šæ ¹æ®æ¡ä»¶è¿”å›ä¸åŒé¢œè‰²å€¼
 	 * @param bHoliday
 	 * @param bToday
 	 */
@@ -203,17 +203,17 @@ public class CalendarCell extends View {
 			return selectCellColor;
 		}
 		
-		//ÈçĞèÖÜÄ©ÓĞÌØÊâ±³¾°É«
+		//å¦‚éœ€å‘¨æœ«æœ‰ç‰¹æ®ŠèƒŒæ™¯è‰²
 		if (isHoliday){
 		   return cellColor;
 		}
 		
-		//Ä¬ÈÏÊÇ°×É«µÄµ¥Ôª¸ñ
+		//é»˜è®¤æ˜¯ç™½è‰²çš„å•å…ƒæ ¼
 		return cellColor;
 	}
 
 	/**
-	 * ÃèÊö£ºÉèÖÃÊÇ·ñ±»Ñ¡ÖĞ
+	 * æè¿°ï¼šè®¾ç½®æ˜¯å¦è¢«é€‰ä¸­
 	 */
 	@Override
 	public void setSelected(boolean bEnable) {
@@ -225,7 +225,7 @@ public class CalendarCell extends View {
 
 	/**
 	 * 
-	 * ÃèÊö£ºÉèÖÃµã»÷ÊÂ¼ş
+	 * æè¿°ï¼šè®¾ç½®ç‚¹å‡»äº‹ä»¶
 	 * @param onItemClickListener
 	 */
 	public void setOnItemClickListener(AbOnItemClickListener onItemClickListener) {
@@ -233,7 +233,7 @@ public class CalendarCell extends View {
 	}
 
 	/**
-	 * ÃèÊö£ºÖ´ĞĞµã»÷ÊÂ¼ş
+	 * æè¿°ï¼šæ‰§è¡Œç‚¹å‡»äº‹ä»¶
 	 */
 	public void doItemClick() {
 		if (mOnItemClickListener != null){
@@ -275,7 +275,7 @@ public class CalendarCell extends View {
 	}
 
 	/**
-	 * ÃèÊö£º¶¯»­²»Í¸Ã÷¶È½¥±ä
+	 * æè¿°ï¼šåŠ¨ç”»ä¸é€æ˜åº¦æ¸å˜
 	 * @param view
 	 */
 	public static void startAlphaAnimIn(View view) {
@@ -287,7 +287,7 @@ public class CalendarCell extends View {
 
 	/**
 	 * 
-	 * ÃèÊö£ºÓĞ¼ÇÂ¼Ê±µÄÑù×Ó
+	 * æè¿°ï¼šæœ‰è®°å½•æ—¶çš„æ ·å­
 	 * @param canvas
 	 * @param Color
 	 */
@@ -307,7 +307,7 @@ public class CalendarCell extends View {
 
 	/**
 	 * 
-	 * ÃèÊö£ºÊÇ·ñÎª»î¶¯µÄÔÂ
+	 * æè¿°ï¼šæ˜¯å¦ä¸ºæ´»åŠ¨çš„æœˆ
 	 * @return
 	 */
 	public boolean isActiveMonth() {

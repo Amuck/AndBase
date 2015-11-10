@@ -18,10 +18,10 @@ import com.ab.util.AbAppUtil;
 /**
  * 
  * Copyright (c) 2012 All rights reserved
- * Ãû³Æ£ºAbHttpPool.java 
- * ÃèÊö£ºÏß³Ì³ØÍ¼Æ¬ÏÂÔØ
+ * åç§°ï¼šAbHttpPool.java 
+ * æè¿°ï¼šçº¿ç¨‹æ± å›¾ç‰‡ä¸‹è½½
  * @author zhaoqp
- * @date£º2013-5-23 ÉÏÎç10:10:53
+ * @dateï¼š2013-5-23 ä¸Šåˆ10:10:53
  * @version v1.0
  */
 
@@ -33,17 +33,17 @@ public class AbHttpPool{
 	/** The Constant D. */
 	private static final boolean D = AbAppData.DEBUG;
 	
-	//µ¥Àı¶ÔÏó
+	//å•ä¾‹å¯¹è±¡
 	/** The http pool. */
 	private static AbHttpPool httpPool = null; 
 	
 	/** The n threads. */
 	private static int nThreads  = 5;
-	// ¹Ì¶¨Îå¸öÏß³ÌÀ´Ö´ĞĞÈÎÎñ 
+	// å›ºå®šäº”ä¸ªçº¿ç¨‹æ¥æ‰§è¡Œä»»åŠ¡ 
 	/** The executor service. */
 	private ExecutorService executorService = null; 
 	
-	/** ÏÂÔØÍê³ÉºóµÄÏûÏ¢¾ä±ú. */
+	/** ä¸‹è½½å®Œæˆåçš„æ¶ˆæ¯å¥æŸ„. */
     private static Handler handler = new Handler() { 
         @Override 
         public void handleMessage(Message msg) { 
@@ -53,7 +53,7 @@ public class AbHttpPool{
     }; 
 	
 	/**
-	 * ¹¹ÔìÍ¼Æ¬ÏÂÔØÆ÷.
+	 * æ„é€ å›¾ç‰‡ä¸‹è½½å™¨.
 	 *
 	 * @param nThreads the n threads
 	 */
@@ -62,7 +62,7 @@ public class AbHttpPool{
     } 
 	
 	/**
-	 * µ¥Àı¹¹ÔìÍ¼Æ¬ÏÂÔØÆ÷.
+	 * å•ä¾‹æ„é€ å›¾ç‰‡ä¸‹è½½å™¨.
 	 *
 	 * @return single instance of AbHttpPool
 	 */
@@ -81,14 +81,14 @@ public class AbHttpPool{
      * @return the drawable
      */
     public Drawable download(final AbHttpItem item) {    
-    	// »º´æÖĞÃ»ÓĞÍ¼Ïñ£¬Ôò´ÓÍøÂçÉÏÈ¡³öÊı¾İ£¬²¢½«È¡³öµÄÊı¾İ»º´æµ½ÄÚ´æÖĞ
+    	// ç¼“å­˜ä¸­æ²¡æœ‰å›¾åƒï¼Œåˆ™ä»ç½‘ç»œä¸Šå–å‡ºæ•°æ®ï¼Œå¹¶å°†å–å‡ºçš„æ•°æ®ç¼“å­˜åˆ°å†…å­˜ä¸­
     	executorService.submit(new Runnable() { 
     		public void run() {
     			try {
-    				//¶¨ÒåÁË»Øµ÷
+    				//å®šä¹‰äº†å›è°ƒ
                     if (item.callback != null) { 
                     	item.callback.get();
-                    	//½»ÓÉUIÏß³Ì´¦Àí 
+                    	//äº¤ç”±UIçº¿ç¨‹å¤„ç† 
                         Message msg = handler.obtainMessage(); 
                         msg.obj = item; 
                         handler.sendMessage(msg); 
@@ -103,7 +103,7 @@ public class AbHttpPool{
     }
     
     /**
-     * ÃèÊö£ºÁ¢¼´¹Ø±Õ.
+     * æè¿°ï¼šç«‹å³å…³é—­.
      */
     public void shutdownNow(){
     	if(!executorService.isTerminated()){
@@ -114,7 +114,7 @@ public class AbHttpPool{
     }
     
     /**
-     * ÃèÊö£ºÆ½»¬¹Ø±Õ.
+     * æè¿°ï¼šå¹³æ»‘å…³é—­.
      */
     public void shutdown(){
     	if(!executorService.isTerminated()){
@@ -124,14 +124,14 @@ public class AbHttpPool{
     }
     
     /**
-     * ÃèÊö£º¹Ø±Õ¼àÌı.
+     * æè¿°ï¼šå…³é—­ç›‘å¬.
      */
     public void listenShutdown(){
     	try {
 			while(!executorService.awaitTermination(1, TimeUnit.MILLISECONDS)) { 
-				if(D) Log.d(TAG, "Ïß³Ì³ØÎ´¹Ø±Õ");
+				if(D) Log.d(TAG, "çº¿ç¨‹æ± æœªå…³é—­");
 			}  
-			if(D) Log.d(TAG, "Ïß³Ì³ØÒÑ¹Ø±Õ");
+			if(D) Log.d(TAG, "çº¿ç¨‹æ± å·²å…³é—­");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

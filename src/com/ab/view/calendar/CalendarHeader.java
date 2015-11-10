@@ -21,10 +21,10 @@ import com.ab.util.AbGraphical;
 
 /**
  * Copyright (c) 2012 All rights reserved
- * Ãû³Æ£ºCalendarHeader.java 
- * ÃèÊö£ºÈÕÀú¿Ø¼şÍ·²¿»æÖÆÀà
+ * åç§°ï¼šCalendarHeader.java 
+ * æè¿°ï¼šæ—¥å†æ§ä»¶å¤´éƒ¨ç»˜åˆ¶ç±»
  * @author zhaoqp
- * @date£º2013-7-9 ÏÂÎç2:07:52
+ * @dateï¼š2013-7-9 ä¸‹åˆ2:07:52
  * @version v1.0
  */
 public class CalendarHeader extends View {
@@ -36,10 +36,10 @@ public class CalendarHeader extends View {
 	
 	private RectF rect = new RectF();
 	
-	//ĞÇÆÚ¼¸
+	//æ˜ŸæœŸå‡ 
 	private int weekDay = Calendar.SUNDAY;
 	
-	//ĞÇÆÚµÄÊı¾İ
+	//æ˜ŸæœŸçš„æ•°æ®
 	private String[] dayName = new String[10];
 
 	/** The width. */
@@ -48,28 +48,28 @@ public class CalendarHeader extends View {
 	/** The height. */
 	private int height = 480;
 	
-	/**Ã¿¸öµ¥Ôª¸ñµÄ¿í¶È*/
+	/**æ¯ä¸ªå•å…ƒæ ¼çš„å®½åº¦*/
 	private int cellWidth = 40;
 	
-	/**ÎÄ×ÖÑÕÉ«*/
+	/**æ–‡å­—é¢œè‰²*/
 	private int defaultTextColor = Color.rgb(86, 86, 86);
 	
-	/**ÌØ±ğÎÄ×ÖÑÕÉ«*/
+	/**ç‰¹åˆ«æ–‡å­—é¢œè‰²*/
 	private int specialTextColor = Color.rgb(240, 140, 26);
 	
-	/**×ÖÌå´óĞ¡*/
+	/**å­—ä½“å¤§å°*/
 	private int defaultTextSize = 25;
 	
-	/**×ÖÌåÊÇ·ñ¼Ó´Ö*/
+	/**å­—ä½“æ˜¯å¦åŠ ç²—*/
 	private boolean defaultTextBold = false;
 	
 	/**
-	 * ÊÇ·ñÓĞÉèÖÃÍ·²¿±³¾°
+	 * æ˜¯å¦æœ‰è®¾ç½®å¤´éƒ¨èƒŒæ™¯
 	 */
 	private boolean hasBg = false;
 	
 	/**
-	 * ÈÕÀúÍ·
+	 * æ—¥å†å¤´
 	 * @param context
 	 */
 	public CalendarHeader(Context context) {
@@ -78,13 +78,13 @@ public class CalendarHeader extends View {
 	
 	public CalendarHeader(Context context, AttributeSet attributeset) {
 		super(context);
-		dayName[Calendar.SUNDAY] = "ÖÜÈÕ";
-		dayName[Calendar.MONDAY] = "ÖÜÒ»";
-		dayName[Calendar.TUESDAY] = "ÖÜ¶ş";
-		dayName[Calendar.WEDNESDAY] = "ÖÜÈı";
-		dayName[Calendar.THURSDAY] = "ÖÜËÄ";
-		dayName[Calendar.FRIDAY] = "ÖÜÎå";
-		dayName[Calendar.SATURDAY] = "ÖÜÁù";
+		dayName[Calendar.SUNDAY] = "å‘¨æ—¥";
+		dayName[Calendar.MONDAY] = "å‘¨ä¸€";
+		dayName[Calendar.TUESDAY] = "å‘¨äºŒ";
+		dayName[Calendar.WEDNESDAY] = "å‘¨ä¸‰";
+		dayName[Calendar.THURSDAY] = "å‘¨å››";
+		dayName[Calendar.FRIDAY] = "å‘¨äº”";
+		dayName[Calendar.SATURDAY] = "å‘¨å…­";
 		mPaint = new Paint(); 
         mPaint.setColor(defaultTextColor);
         mPaint.setAntiAlias(true); 
@@ -99,7 +99,7 @@ public class CalendarHeader extends View {
 	}
 	
 	/**
- 	 * ÃèÊö£ºÉèÖÃ±³¾°
+ 	 * æè¿°ï¼šè®¾ç½®èƒŒæ™¯
  	 * @param resid
  	 */
  	public void setHeaderBackgroundResource(int resid){
@@ -108,14 +108,14 @@ public class CalendarHeader extends View {
  	}
 	
 	/**
-	 * ÃèÊö£ºÎÄ×Ö´óĞ¡
+	 * æè¿°ï¼šæ–‡å­—å¤§å°
 	 */
 	public int getTextSize() {
 		return defaultTextSize;
 	}
 
 	/**
-	 * ÃèÊö£ºÉèÖÃÎÄ×Ö´óĞ¡
+	 * æè¿°ï¼šè®¾ç½®æ–‡å­—å¤§å°
 	 */
 	public void setTextSize(int mTextSize) {
 		this.defaultTextSize = mTextSize;
@@ -129,19 +129,19 @@ public class CalendarHeader extends View {
 		
 		if(!hasBg){
 		   canvas.drawColor(Color.WHITE);
-		   //ÉèÖÃ¾ØĞÎ´óĞ¡
+		   //è®¾ç½®çŸ©å½¢å¤§å°
 		   rect.set(0, 0, this.getWidth(),this.getHeight());
 		   rect.inset(0.5f,0.5f);
 		}
-		// »æÖÆÈÕÀúÍ·²¿
+		// ç»˜åˆ¶æ—¥å†å¤´éƒ¨
 		drawDayHeader(canvas);
 		
 	}
 
 	private void drawDayHeader(Canvas canvas) {
-		// Ğ´ÈëÈÕÀúÍ·²¿£¬ÉèÖÃ»­±Ê²ÎÊı
+		// å†™å…¥æ—¥å†å¤´éƒ¨ï¼Œè®¾ç½®ç”»ç¬”å‚æ•°
 		if(!hasBg){
-			// »­¾ØĞÎ£¬²¢ÉèÖÃ¾ØĞÎ»­±ÊµÄÑÕÉ«
+			// ç”»çŸ©å½¢ï¼Œå¹¶è®¾ç½®çŸ©å½¢ç”»ç¬”çš„é¢œè‰²
 			mPaint.setColor(Color.rgb(150, 195, 70));
 			canvas.drawRect(rect, mPaint);
 		}
@@ -162,7 +162,7 @@ public class CalendarHeader extends View {
 	        mTextPaint.setTypeface(Typeface.DEFAULT_BOLD);
 	        mTextPaint.setTextSize(defaultTextSize);
 	        FontMetrics fm  = mTextPaint.getFontMetrics();
-	        //µÃµ½ĞĞ¸ß
+	        //å¾—åˆ°è¡Œé«˜
 	        int textHeight = (int)Math.ceil(fm.descent - fm.ascent);
 	        int textWidth = (int)AbGraphical.getStringWidth(sDayName,mTextPaint);
 			
@@ -177,7 +177,7 @@ public class CalendarHeader extends View {
 	}
 	
 	/**
-	 * ÃèÊö£º»ñÈ¡ĞÇÆÚµÄÎÄ×ÖÃèÊö
+	 * æè¿°ï¼šè·å–æ˜ŸæœŸçš„æ–‡å­—æè¿°
 	 * @param calendarDay
 	 */
 	public String getWeekDayName(int calendarDay) {

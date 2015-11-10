@@ -10,17 +10,17 @@ import android.graphics.Bitmap;
 
 // TODO: Auto-generated Javadoc
 /**
- * ÃèÊö£ºÍ¼Æ¬»º´æ.
+ * æè¿°ï¼šå›¾ç‰‡ç¼“å­˜.
  *
  * @author zhaoqp
- * @date£º2013-5-23 ÉÏÎç10:10:53
+ * @dateï¼š2013-5-23 ä¸Šåˆ10:10:53
  * @version v1.0
  */
 
 public class AbImageCache {
 
-	// ÎªÁË¼Ó¿ìËÙ¶È£¬ÔÚÄÚ´æÖĞ¿ªÆô»º´æ£¨Ö÷ÒªÓ¦ÓÃÓÚÖØ¸´Í¼Æ¬½Ï¶àÊ±£¬
-	//»òÕßÍ¬Ò»¸öÍ¼Æ¬Òª¶à´Î±»·ÃÎÊ£¬±ÈÈçÔÚListViewÊ±À´»Ø¹ö¶¯£©
+	// ä¸ºäº†åŠ å¿«é€Ÿåº¦ï¼Œåœ¨å†…å­˜ä¸­å¼€å¯ç¼“å­˜ï¼ˆä¸»è¦åº”ç”¨äºé‡å¤å›¾ç‰‡è¾ƒå¤šæ—¶ï¼Œ
+	//æˆ–è€…åŒä¸€ä¸ªå›¾ç‰‡è¦å¤šæ¬¡è¢«è®¿é—®ï¼Œæ¯”å¦‚åœ¨ListViewæ—¶æ¥å›æ»šåŠ¨ï¼‰
 	/** The image cache. */
 	public static HashMap<String, SoftReference<Bitmap>> imageCache = new HashMap<String, SoftReference<Bitmap>>();
 

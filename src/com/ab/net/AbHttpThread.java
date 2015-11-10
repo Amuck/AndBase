@@ -8,7 +8,7 @@ import android.os.Message;
 
 // TODO: Auto-generated Javadoc
 /**
- * ÃèÊö£º Êı¾İÏÂÔØÏß³Ì.
+ * æè¿°ï¼š æ•°æ®ä¸‹è½½çº¿ç¨‹.
  *
  * @author zhaoqp
  * @date 2011-11-10
@@ -22,10 +22,10 @@ public class AbHttpThread extends Thread {
 	/** The Constant D. */
 	private static final boolean D = true;
 	
-	/** ÏÂÔØµ¥Î». */
+	/** ä¸‹è½½å•ä½. */
 	public AbHttpItem mNetGetItem = null;
 	
-	/** ÏÂÔØÍê³ÉºóµÄÏûÏ¢¾ä±ú. */
+	/** ä¸‹è½½å®Œæˆåçš„æ¶ˆæ¯å¥æŸ„. */
     private static Handler handler = new Handler() { 
         @Override 
         public void handleMessage(Message msg) { 
@@ -35,15 +35,15 @@ public class AbHttpThread extends Thread {
     }; 
     
     /**
-     * ¹¹ÔìÏÂÔØÏß³Ì¶ÓÁĞ.
+     * æ„é€ ä¸‹è½½çº¿ç¨‹é˜Ÿåˆ—.
      */
     public AbHttpThread() {
     }
     
     /**
-     * ¿ªÊ¼Ò»¸öÏÂÔØÈÎÎñ.
+     * å¼€å§‹ä¸€ä¸ªä¸‹è½½ä»»åŠ¡.
      *
-     * @param item ÏÂÔØµ¥Î»
+     * @param item ä¸‹è½½å•ä½
      */
     public void download(AbHttpItem item) { 
     	 mNetGetItem = item;
@@ -51,17 +51,17 @@ public class AbHttpThread extends Thread {
     } 
  
     /**
-     * ÃèÊö£ºÏß³ÌÔËĞĞ.
+     * æè¿°ï¼šçº¿ç¨‹è¿è¡Œ.
      *
      * @see java.lang.Thread#run()
      */
     @Override 
     public void run() { 
             if(mNetGetItem!=null) { 
-            	//¶¨ÒåÁË»Øµ÷
+            	//å®šä¹‰äº†å›è°ƒ
                 if (mNetGetItem.callback != null) { 
                 	mNetGetItem.callback.get();
-                	//½»ÓÉUIÏß³Ì´¦Àí 
+                	//äº¤ç”±UIçº¿ç¨‹å¤„ç† 
                     Message msg = handler.obtainMessage(); 
                     msg.obj = mNetGetItem; 
                     handler.sendMessage(msg); 

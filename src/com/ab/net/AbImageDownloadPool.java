@@ -21,10 +21,10 @@ import com.ab.util.AbStrUtil;
 /**
  * 
  * Copyright (c) 2012 All rights reserved
- * Ãû³Æ£ºAbImageDownload.java 
- * ÃèÊö£ºÏß³Ì³ØÍ¼Æ¬ÏÂÔØ
+ * åç§°ï¼šAbImageDownload.java 
+ * æè¿°ï¼šçº¿ç¨‹æ± å›¾ç‰‡ä¸‹è½½
  * @author zhaoqp
- * @date£º2013-5-23 ÉÏÎç10:10:53
+ * @dateï¼š2013-5-23 ä¸Šåˆ10:10:53
  * @version v1.0
  */
 
@@ -36,17 +36,17 @@ public class AbImageDownloadPool{
 	/** The Constant D. */
 	private static final boolean D = AbAppData.DEBUG;
 	
-	//µ¥Àı¶ÔÏó
+	//å•ä¾‹å¯¹è±¡
 	/** The image download. */
 	private static AbImageDownloadPool imageDownload = null; 
 	
 	/** The n threads. */
 	private static int nThreads  = 5;
-	// ¹Ì¶¨Îå¸öÏß³ÌÀ´Ö´ĞĞÈÎÎñ 
+	// å›ºå®šäº”ä¸ªçº¿ç¨‹æ¥æ‰§è¡Œä»»åŠ¡ 
 	/** The executor service. */
 	private ExecutorService executorService = null; 
 	
-	/** ÏÂÔØÍê³ÉºóµÄÏûÏ¢¾ä±ú. */
+	/** ä¸‹è½½å®Œæˆåçš„æ¶ˆæ¯å¥æŸ„. */
     private static Handler handler = new Handler() { 
         @Override 
         public void handleMessage(Message msg) { 
@@ -56,7 +56,7 @@ public class AbImageDownloadPool{
     }; 
 	
 	/**
-	 * ¹¹ÔìÍ¼Æ¬ÏÂÔØÆ÷.
+	 * æ„é€ å›¾ç‰‡ä¸‹è½½å™¨.
 	 *
 	 * @param nThreads the n threads
 	 */
@@ -65,7 +65,7 @@ public class AbImageDownloadPool{
     } 
 	
 	/**
-	 * µ¥Àı¹¹ÔìÍ¼Æ¬ÏÂÔØÆ÷.
+	 * å•ä¾‹æ„é€ å›¾ç‰‡ä¸‹è½½å™¨.
 	 *
 	 * @return single instance of AbImageDownloadPool
 	 */
@@ -85,26 +85,26 @@ public class AbImageDownloadPool{
     public void download(final AbImageDownloadItem item) {    
     	String urlImage = item.imageUrl;
     	if(AbStrUtil.isEmpty(urlImage)){
-    		if(D)Log.d(TAG, "Í¼Æ¬URLÎª¿Õ£¬ÇëÏÈÅĞ¶Ï");
+    		if(D)Log.d(TAG, "å›¾ç‰‡URLä¸ºç©ºï¼Œè¯·å…ˆåˆ¤æ–­");
     	}else{
     		urlImage = urlImage.trim();
     	}
     	final String url = urlImage;
     	if(AbFileUtil.getFileNameFromUrl(url) != null){
-    		// Èç¹û»º´æ¹ı¾Í´Ó»º´æÖĞÈ¡³öÊı¾İ                
+    		// å¦‚æœç¼“å­˜è¿‡å°±ä»ç¼“å­˜ä¸­å–å‡ºæ•°æ®                
         	if (AbImageCache.imageCache.containsKey(url)) {                         
         		SoftReference<Bitmap> softReference = AbImageCache.imageCache.get(url);
         		item.bitmap =  softReference.get(); 
-        		if(D) Log.d(TAG, "»º´æÖĞ»ñÈ¡µÄ:"+item.bitmap);
+        		if(D) Log.d(TAG, "ç¼“å­˜ä¸­è·å–çš„:"+item.bitmap);
         	}
         	
         	if(item.bitmap == null){
-        		// »º´æÖĞÃ»ÓĞÍ¼Ïñ£¬Ôò´ÓÍøÂçÉÏÈ¡³öÊı¾İ£¬²¢½«È¡³öµÄÊı¾İ»º´æµ½ÄÚ´æÖĞ
+        		// ç¼“å­˜ä¸­æ²¡æœ‰å›¾åƒï¼Œåˆ™ä»ç½‘ç»œä¸Šå–å‡ºæ•°æ®ï¼Œå¹¶å°†å–å‡ºçš„æ•°æ®ç¼“å­˜åˆ°å†…å­˜ä¸­
     	    	executorService.submit(new Runnable() { 
     	    		public void run() {
     	    			try {
     	    				item.bitmap = AbFileUtil.getBitmapFromSDCache(item.imageUrl,item.type,item.width,item.height);
-    	    				if(D) Log.d(TAG, "ÏÂÔØ´ÓSD¿¨µÃµ½µÄ:"+item.bitmap);
+    	    				if(D) Log.d(TAG, "ä¸‹è½½ä»SDå¡å¾—åˆ°çš„:"+item.bitmap);
     	    				AbImageCache.imageCache.put(url, new SoftReference<Bitmap>(item.bitmap));                                           
     	    				if (item.callback != null) { 
     	    	                Message msg = handler.obtainMessage(); 
@@ -124,7 +124,7 @@ public class AbImageDownloadPool{
                 } 
         	}
     	}else{
-    		if(D) Log.d(TAG, "Í¼Æ¬Á´½Ó²»ºÏ·¨:"+url);
+    		if(D) Log.d(TAG, "å›¾ç‰‡é“¾æ¥ä¸åˆæ³•:"+url);
     		if (item.callback != null) { 
                 Message msg = handler.obtainMessage(); 
                 msg.obj = item; 
@@ -135,7 +135,7 @@ public class AbImageDownloadPool{
     }
     
     /**
-     * ÃèÊö£ºÁ¢¼´¹Ø±Õ.
+     * æè¿°ï¼šç«‹å³å…³é—­.
      */
     public void shutdownNow(){
     	if(!executorService.isTerminated()){
@@ -146,7 +146,7 @@ public class AbImageDownloadPool{
     }
     
     /**
-     * ÃèÊö£ºÆ½»¬¹Ø±Õ.
+     * æè¿°ï¼šå¹³æ»‘å…³é—­.
      */
     public void shutdown(){
     	if(!executorService.isTerminated()){
@@ -156,14 +156,14 @@ public class AbImageDownloadPool{
     }
     
     /**
-     * ÃèÊö£º¹Ø±Õ¼àÌı.
+     * æè¿°ï¼šå…³é—­ç›‘å¬.
      */
     public void listenShutdown(){
     	try {
 			while(!executorService.awaitTermination(1, TimeUnit.MILLISECONDS)) { 
-				if(D) Log.d(TAG, "Ïß³Ì³ØÎ´¹Ø±Õ");
+				if(D) Log.d(TAG, "çº¿ç¨‹æ± æœªå…³é—­");
 			}  
-			if(D) Log.d(TAG, "Ïß³Ì³ØÒÑ¹Ø±Õ");
+			if(D) Log.d(TAG, "çº¿ç¨‹æ± å·²å…³é—­");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -45,9 +45,9 @@ import com.ab.view.AbMonitorView;
 
 // TODO: Auto-generated Javadoc
 /**
- * ÃèÊö£º¼Ì³ĞÕâ¸öActivityÊ¹ÄãµÄActivityÓµÓĞÒ»¸ö³ÌĞò¿ò¼Ü.
+ * æè¿°ï¼šç»§æ‰¿è¿™ä¸ªActivityä½¿ä½ çš„Activityæ‹¥æœ‰ä¸€ä¸ªç¨‹åºæ¡†æ¶.
  * @author zhaoqp
- * @date£º2013-1-15 ÏÂÎç3:27:05
+ * @dateï¼š2013-1-15 ä¸‹åˆ3:27:05
  * @version v1.0
  */
 
@@ -59,84 +59,84 @@ public abstract class AbActivity extends FragmentActivity {
 	/** The debug. */
 	private boolean D = AbAppData.DEBUG;
 
-	/** ¼ÓÔØ¿òµÄÎÄ×ÖËµÃ÷. */
-	public String mProgressMessage = "ÇëÉÔºò...";
+	/** åŠ è½½æ¡†çš„æ–‡å­—è¯´æ˜. */
+	public String mProgressMessage = "è¯·ç¨å€™...";
 	
-	/** È«¾ÖµÄLayoutInflater¶ÔÏó£¬ÒÑ¾­Íê³É³õÊ¼»¯. */
+	/** å…¨å±€çš„LayoutInflaterå¯¹è±¡ï¼Œå·²ç»å®Œæˆåˆå§‹åŒ–. */
 	public LayoutInflater mInflater;
 	
-	/** È«¾ÖµÄ¼ÓÔØ¿ò¶ÔÏó£¬ÒÑ¾­Íê³É³õÊ¼»¯. */
+	/** å…¨å±€çš„åŠ è½½æ¡†å¯¹è±¡ï¼Œå·²ç»å®Œæˆåˆå§‹åŒ–. */
 	public ProgressDialog mProgressDialog;
 	
-	/** µ×²¿µ¯³öµÄDialog. */
+	/** åº•éƒ¨å¼¹å‡ºçš„Dialog. */
 	private Dialog mBottomDialog;
 	
-	/** ¾ÓÖĞµ¯³öµÄDialog. */
+	/** å±…ä¸­å¼¹å‡ºçš„Dialog. */
 	private Dialog mCenterDialog;
 	
-	/** µ×²¿µ¯³öµÄDialogµÄView. */
+	/** åº•éƒ¨å¼¹å‡ºçš„Dialogçš„View. */
 	private View mBottomDialogView = null;
 	
-	/** ¾ÓÖĞµ¯³öµÄDialogµÄView. */
+	/** å±…ä¸­å¼¹å‡ºçš„Dialogçš„View. */
 	private View mCenterDialogView = null;
 	
-	/** È«¾ÖµÄApplication¶ÔÏó£¬ÒÑ¾­Íê³É³õÊ¼»¯. */
+	/** å…¨å±€çš„Applicationå¯¹è±¡ï¼Œå·²ç»å®Œæˆåˆå§‹åŒ–. */
 	public Application abApplication = null;
 	
-	/** È«¾ÖµÄSharedPreferences¶ÔÏó£¬ÒÑ¾­Íê³É³õÊ¼»¯. */
+	/** å…¨å±€çš„SharedPreferenceså¯¹è±¡ï¼Œå·²ç»å®Œæˆåˆå§‹åŒ–. */
 	public SharedPreferences  abSharedPreferences = null;
 	
 	/**
-	 * LinearLayout.LayoutParams£¬ÒÑ¾­³õÊ¼»¯ÎªFILL_PARENT, FILL_PARENT
+	 * LinearLayout.LayoutParamsï¼Œå·²ç»åˆå§‹åŒ–ä¸ºFILL_PARENT, FILL_PARENT
 	 */
 	public LinearLayout.LayoutParams layoutParamsFF = null;
 	
 	/**
-	 * LinearLayout.LayoutParams£¬ÒÑ¾­³õÊ¼»¯ÎªFILL_PARENT, WRAP_CONTENT
+	 * LinearLayout.LayoutParamsï¼Œå·²ç»åˆå§‹åŒ–ä¸ºFILL_PARENT, WRAP_CONTENT
 	 */
 	public LinearLayout.LayoutParams layoutParamsFW = null;
 	
 	/**
-	 * LinearLayout.LayoutParams£¬ÒÑ¾­³õÊ¼»¯ÎªWRAP_CONTENT, FILL_PARENT
+	 * LinearLayout.LayoutParamsï¼Œå·²ç»åˆå§‹åŒ–ä¸ºWRAP_CONTENT, FILL_PARENT
 	 */
 	public LinearLayout.LayoutParams layoutParamsWF = null;
 	
 	/**
-	 * LinearLayout.LayoutParams£¬ÒÑ¾­³õÊ¼»¯ÎªWRAP_CONTENT, WRAP_CONTENT
+	 * LinearLayout.LayoutParamsï¼Œå·²ç»åˆå§‹åŒ–ä¸ºWRAP_CONTENT, WRAP_CONTENT
 	 */
 	public LinearLayout.LayoutParams layoutParamsWW = null;
 	
-	/** ×ó²àµÄLogoÍ¼±êView. */
+	/** å·¦ä¾§çš„Logoå›¾æ ‡View. */
 	protected ImageView logoView = null;
 	
-	/** ×ó²àµÄLogoÍ¼±êÓÒ±ßµÄ·Ö¸îÏßView. */
+	/** å·¦ä¾§çš„Logoå›¾æ ‡å³è¾¹çš„åˆ†å‰²çº¿View. */
 	protected ImageView logoLineView = null;
 	
-	/** ×Ü²¼¾Ö. */
+	/** æ€»å¸ƒå±€. */
 	public RelativeLayout ab_base = null;
 	
-	/** ±êÌâÀ¸²¼¾Ö. */
+	/** æ ‡é¢˜æ å¸ƒå±€. */
 	protected LinearLayout titleLayout = null;
 	
-	/** ±êÌâ²¼¾Ö. */
+	/** æ ‡é¢˜å¸ƒå±€. */
 	protected LinearLayout titleTextLayout = null;
 	
-	/** ±êÌâÎÄ±¾µÄ¶ÔÆë²ÎÊı. */
+	/** æ ‡é¢˜æ–‡æœ¬çš„å¯¹é½å‚æ•°. */
 	private LinearLayout.LayoutParams titleTextLayoutParams = null;
 	
-	/** ÓÒ±ß²¼¾ÖµÄµÄ¶ÔÆë²ÎÊı. */
+	/** å³è¾¹å¸ƒå±€çš„çš„å¯¹é½å‚æ•°. */
 	private LinearLayout.LayoutParams rightViewLayoutParams = null;
 	
-	/** ±êÌâÀ¸²¼¾ÖID. */
+	/** æ ‡é¢˜æ å¸ƒå±€ID. */
 	private static final int titleLayoutID = 1;
 	
-	/** Ö÷ÄÚÈİ²¼¾Ö. */
+	/** ä¸»å†…å®¹å¸ƒå±€. */
 	protected RelativeLayout contentLayout = null;
 	
-	/** ÏÔÊ¾±êÌâÎÄ×ÖµÄView. */
+	/** æ˜¾ç¤ºæ ‡é¢˜æ–‡å­—çš„View. */
 	protected Button titleTextBtn = null;
 	
-	/** ÓÒ±ßµÄView£¬¿ÉÒÔ×Ô¶¨ÒåÏÔÊ¾Ê²Ã´. */
+	/** å³è¾¹çš„Viewï¼Œå¯ä»¥è‡ªå®šä¹‰æ˜¾ç¤ºä»€ä¹ˆ. */
 	protected LinearLayout rightLayout = null;
 	
 	/** The diaplay width. */
@@ -145,7 +145,7 @@ public abstract class AbActivity extends FragmentActivity {
 	/** The diaplay height. */
 	public int diaplayHeight  = 480;
 	
-	/** ĞÔÄÜ²âÊÔ. */
+	/** æ€§èƒ½æµ‹è¯•. */
 	private boolean mMonitorOpened = false;
 	
 	/** The m ab monitor view. */
@@ -165,8 +165,8 @@ public abstract class AbActivity extends FragmentActivity {
 	
     
 	/**
-	 * Ö÷ÒªHandlerÀà£¬ÔÚÏß³ÌÖĞ¿ÉÓÃ
-	 * what£º0.ÌáÊ¾ÎÄ±¾ĞÅÏ¢,1.µÈ´ı¿ò   ,2.ÒÆ³ıµÈ´ı¿ò 
+	 * ä¸»è¦Handlerç±»ï¼Œåœ¨çº¿ç¨‹ä¸­å¯ç”¨
+	 * whatï¼š0.æç¤ºæ–‡æœ¬ä¿¡æ¯,1.ç­‰å¾…æ¡†   ,2.ç§»é™¤ç­‰å¾…æ¡† 
 	 */
 	private Handler baseHandler = new Handler() {
 
@@ -193,7 +193,7 @@ public abstract class AbActivity extends FragmentActivity {
 	};
 
 	/**
-	 * ÃèÊö£º´´½¨.
+	 * æè¿°ï¼šåˆ›å»º.
 	 *
 	 * @param savedInstanceState the saved instance state
 	 * @see android.support.v4.app.FragmentActivity#onCreate(android.os.Bundle)
@@ -266,7 +266,7 @@ public abstract class AbActivity extends FragmentActivity {
 			ab_base.addView(contentLayout, layoutParamsFW1);
 		}
 		
-		// ¼ÓÓÒ±ßµÄ°´Å¥
+		// åŠ å³è¾¹çš„æŒ‰é’®
 		rightLayout = new LinearLayout(this);
 		rightLayout.setOrientation(LinearLayout.HORIZONTAL);
 		rightLayout.setGravity(Gravity.RIGHT);
@@ -289,25 +289,25 @@ public abstract class AbActivity extends FragmentActivity {
         
         mAbMonitorView  = new AbMonitorView(this);
 		mMonitorParams = new WindowManager.LayoutParams();
-        // ÉèÖÃwindow type
+        // è®¾ç½®window type
 		mMonitorParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
         /*
-         * Èç¹ûÉèÖÃÎªparams.type = WindowManager.LayoutParams.TYPE_PHONE;
-         * ÄÇÃ´ÓÅÏÈ¼¶»á½µµÍÒ»Ğ©, ¼´À­ÏÂÍ¨ÖªÀ¸²»¿É¼û
+         * å¦‚æœè®¾ç½®ä¸ºparams.type = WindowManager.LayoutParams.TYPE_PHONE;
+         * é‚£ä¹ˆä¼˜å…ˆçº§ä¼šé™ä½ä¸€äº›, å³æ‹‰ä¸‹é€šçŸ¥æ ä¸å¯è§
          */
-		//ÉèÖÃÍ¼Æ¬¸ñÊ½£¬Ğ§¹ûÎª±³¾°Í¸Ã÷
+		//è®¾ç½®å›¾ç‰‡æ ¼å¼ï¼Œæ•ˆæœä¸ºèƒŒæ™¯é€æ˜
 		mMonitorParams.format = PixelFormat.RGBA_8888; 
-        // ÉèÖÃWindow flag
+        // è®¾ç½®Window flag
 		mMonitorParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                               | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         /*
-         * ÏÂÃæµÄflagsÊôĞÔµÄĞ§¹ûĞÎÍ¬¡°Ëø¶¨¡±¡£
-         * Ğü¸¡´°²»¿É´¥Ãş£¬²»½ÓÊÜÈÎºÎÊÂ¼ş,Í¬Ê±²»Ó°ÏìºóÃæµÄÊÂ¼şÏìÓ¦¡£
+         * ä¸‹é¢çš„flagså±æ€§çš„æ•ˆæœå½¢åŒâ€œé”å®šâ€ã€‚
+         * æ‚¬æµ®çª—ä¸å¯è§¦æ‘¸ï¼Œä¸æ¥å—ä»»ä½•äº‹ä»¶,åŒæ—¶ä¸å½±å“åé¢çš„äº‹ä»¶å“åº”ã€‚
         wmParams.flags=LayoutParams.FLAG_NOT_TOUCH_MODAL
                                | LayoutParams.FLAG_NOT_FOCUSABLE
                                | LayoutParams.FLAG_NOT_TOUCHABLE;
          */
-        // ÉèÖÃĞü¸¡´°µÄ³¤µÃ¿í
+        // è®¾ç½®æ‚¬æµ®çª—çš„é•¿å¾—å®½
 		mMonitorParams.width = 60;
 		mMonitorParams.height = 30;
 		//if(D) this.openMonitor();
@@ -315,40 +315,40 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-     * ÃèÊö£ºToastÌáÊ¾ÎÄ±¾.
-     * @param text  ÎÄ±¾
+     * æè¿°ï¼šToastæç¤ºæ–‡æœ¬.
+     * @param text  æ–‡æœ¬
      */
 	public void showToast(String text) {
 		Toast.makeText(this,""+text, Toast.LENGTH_SHORT).show();
 	}
 	
 	/**
-     * ÃèÊö£ºToastÌáÊ¾ÎÄ±¾.
-     * @param resId  ÎÄ±¾µÄ×ÊÔ´ID
+     * æè¿°ï¼šToastæç¤ºæ–‡æœ¬.
+     * @param resId  æ–‡æœ¬çš„èµ„æºID
      */
 	public void showToast(int resId) {
 		Toast.makeText(this,""+this.getResources().getText(resId), Toast.LENGTH_SHORT).show();
 	}
 	
 	/**
-     * ÃèÊö£ºÉèÖÃ±êÌâÎÄ±¾.
-     * @param text  ÎÄ±¾
+     * æè¿°ï¼šè®¾ç½®æ ‡é¢˜æ–‡æœ¬.
+     * @param text  æ–‡æœ¬
      */
 	public void setTitleText(String text) {
 		titleTextBtn.setText(text);
 	}
 	
 	/**
-     * ÃèÊö£ºÉèÖÃ±êÌâÎÄ±¾.
-     * @param resId  ÎÄ±¾µÄ×ÊÔ´ID
+     * æè¿°ï¼šè®¾ç½®æ ‡é¢˜æ–‡æœ¬.
+     * @param resId  æ–‡æœ¬çš„èµ„æºID
      */
 	public void setTitleText(int resId) {
 		titleTextBtn.setText(resId);
 	}
 	
 	/**
-     * ÃèÊö£ºÉèÖÃLogoµÄ±³¾°Í¼.
-     * @param drawable  Logo×ÊÔ´Drawable
+     * æè¿°ï¼šè®¾ç½®Logoçš„èƒŒæ™¯å›¾.
+     * @param drawable  Logoèµ„æºDrawable
      */
 	public void setLogo(Drawable drawable) {
 		logoView.setVisibility(View.VISIBLE);
@@ -360,8 +360,8 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-     * ÃèÊö£ºÉèÖÃLogoµÄ±³¾°×ÊÔ´.
-     * @param resId  Logo×ÊÔ´ID
+     * æè¿°ï¼šè®¾ç½®Logoçš„èƒŒæ™¯èµ„æº.
+     * @param resId  Logoèµ„æºID
      */
 	public void setLogo(int resId) {
 		logoView.setVisibility(View.VISIBLE);
@@ -369,8 +369,8 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-     * ÃèÊö£ºÉèÖÃLogo·Ö¸ôÏßµÄ±³¾°×ÊÔ´.
-     * @param resId  Logo×ÊÔ´ID
+     * æè¿°ï¼šè®¾ç½®Logoåˆ†éš”çº¿çš„èƒŒæ™¯èµ„æº.
+     * @param resId  Logoèµ„æºID
      */
 	public void setLogoLine(int resId) {
 		logoLineView.setVisibility(View.VISIBLE);
@@ -378,8 +378,8 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-     * ÃèÊö£ºÉèÖÃLogo·Ö¸ôÏßµÄ±³¾°Í¼.
-     * @param drawable  Logo×ÊÔ´Drawable
+     * æè¿°ï¼šè®¾ç½®Logoåˆ†éš”çº¿çš„èƒŒæ™¯å›¾.
+     * @param drawable  Logoèµ„æºDrawable
      */
 	public void setLogoLine(Drawable drawable) {
 		logoLineView.setVisibility(View.VISIBLE);
@@ -388,8 +388,8 @@ public abstract class AbActivity extends FragmentActivity {
 	
 	
 	/**
-     * ÃèÊö£º°ÑÖ¸¶¨µÄViewÌî¼Óµ½±êÌâÀ¸ÓÒ±ß.
-     * @param rightView  Ö¸¶¨µÄView
+     * æè¿°ï¼šæŠŠæŒ‡å®šçš„Viewå¡«åŠ åˆ°æ ‡é¢˜æ å³è¾¹.
+     * @param rightView  æŒ‡å®šçš„View
      */
 	public void addRightView(View rightView) {
 		rightLayout.setVisibility(View.VISIBLE);
@@ -397,8 +397,8 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-     * ÃèÊö£º°ÑÖ¸¶¨×ÊÔ´ID±íÊ¾µÄViewÌî¼Óµ½±êÌâÀ¸ÓÒ±ß.
-     * @param resId  Ö¸¶¨µÄViewµÄ×ÊÔ´ID
+     * æè¿°ï¼šæŠŠæŒ‡å®šèµ„æºIDè¡¨ç¤ºçš„Viewå¡«åŠ åˆ°æ ‡é¢˜æ å³è¾¹.
+     * @param resId  æŒ‡å®šçš„Viewçš„èµ„æºID
      */
 	public void addRightView(int resId) {
 		rightLayout.setVisibility(View.VISIBLE);
@@ -406,15 +406,15 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-     * ÃèÊö£ºÇå³ı±êÌâÀ¸ÓÒ±ßµÄView.
+     * æè¿°ï¼šæ¸…é™¤æ ‡é¢˜æ å³è¾¹çš„View.
      */
 	public void clearRightView() {
 		rightLayout.removeAllViews();
 	}
 	
 	/**
-	 * ÃèÊö£ºÓÃÖ¸¶¨µÄViewÌî³äÖ÷½çÃæ.
-	 * @param contentView  Ö¸¶¨µÄView
+	 * æè¿°ï¼šç”¨æŒ‡å®šçš„Viewå¡«å……ä¸»ç•Œé¢.
+	 * @param contentView  æŒ‡å®šçš„View
 	 */
 	public void setAbContentView(View contentView) {
 		contentLayout.removeAllViews();
@@ -422,8 +422,8 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£ºÓÃÖ¸¶¨×ÊÔ´ID±íÊ¾µÄViewÌî³äÖ÷½çÃæ.
-	 * @param resId  Ö¸¶¨µÄViewµÄ×ÊÔ´ID
+	 * æè¿°ï¼šç”¨æŒ‡å®šèµ„æºIDè¡¨ç¤ºçš„Viewå¡«å……ä¸»ç•Œé¢.
+	 * @param resId  æŒ‡å®šçš„Viewçš„èµ„æºID
 	 */
 	public void setAbContentView(int resId) {
 		contentLayout.removeAllViews();
@@ -431,16 +431,16 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃLogo°´Å¥µÄ·µ»ØÊÂ¼ş.
-	 * @param mOnClickListener  Ö¸¶¨µÄ·µ»ØÊÂ¼ş
+	 * æè¿°ï¼šè®¾ç½®LogoæŒ‰é’®çš„è¿”å›äº‹ä»¶.
+	 * @param mOnClickListener  æŒ‡å®šçš„è¿”å›äº‹ä»¶
 	 */
 	public void setLogoBackOnClickListener(View.OnClickListener mOnClickListener) {
 		 logoView.setOnClickListener(mOnClickListener);
 	}
 
 	/**
-	 * ÃèÊö£ºÔÚÏß³ÌÖĞÌáÊ¾ÎÄ±¾ĞÅÏ¢.
-	 * @param resId ÒªÌáÊ¾µÄ×Ö·û´®×ÊÔ´ID£¬ÏûÏ¢whatÖµÎª0,
+	 * æè¿°ï¼šåœ¨çº¿ç¨‹ä¸­æç¤ºæ–‡æœ¬ä¿¡æ¯.
+	 * @param resId è¦æç¤ºçš„å­—ç¬¦ä¸²èµ„æºIDï¼Œæ¶ˆæ¯whatå€¼ä¸º0,
 	 */
 	public void showToastInThread(int resId) {
 		Message msg = baseHandler.obtainMessage(0);
@@ -451,8 +451,8 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£ºÔÚÏß³ÌÖĞÌáÊ¾ÎÄ±¾ĞÅÏ¢.
-	 * @param toast ÏûÏ¢whatÖµÎª0
+	 * æè¿°ï¼šåœ¨çº¿ç¨‹ä¸­æç¤ºæ–‡æœ¬ä¿¡æ¯.
+	 * @param toast æ¶ˆæ¯whatå€¼ä¸º0
 	 */
 	public void showToastInThread(String toast) {
 		Message msg = baseHandler.obtainMessage(0);
@@ -463,19 +463,19 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£ºÏÔÊ¾½ø¶È¿ò.
+	 * æè¿°ï¼šæ˜¾ç¤ºè¿›åº¦æ¡†.
 	 */
 	public void showProgressDialog() {
 		showProgressDialog(null);
     }
 	
 	/**
-	 * ÃèÊö£ºÏÔÊ¾½ø¶È¿ò.
+	 * æè¿°ï¼šæ˜¾ç¤ºè¿›åº¦æ¡†.
 	 * @param message the message
 	 */
 	public void showProgressDialog(String message) {
 		closeMonitor();
-		// ´´½¨Ò»¸öÏÔÊ¾½ø¶ÈµÄDialog
+		// åˆ›å»ºä¸€ä¸ªæ˜¾ç¤ºè¿›åº¦çš„Dialog
 		if(!AbStrUtil.isEmpty(message)){
 			mProgressMessage = message;
 		}
@@ -486,7 +486,7 @@ public abstract class AbActivity extends FragmentActivity {
 			WindowManager.LayoutParams lp = window.getAttributes();
 			window.setGravity(Gravity.CENTER); 
 			lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG;
-			// Ìí¼Ó¶¯»­
+			// æ·»åŠ åŠ¨ç”»
 			window.setWindowAnimations(android.R.style.Animation_Dialog); 
 			window.setAttributes(lp);*/
 		}
@@ -494,10 +494,10 @@ public abstract class AbActivity extends FragmentActivity {
     }
 	
 	/**
-	 * ÃèÊö£ºÔÚµ×²¿ÏÔÊ¾Ò»¸öDialog,idÎª1,ÔÚÖĞ¼äÏÔÊ¾idÎª2.
-	 * @param id DialogµÄÀàĞÍ
-	 * @param view Ö¸¶¨Ò»¸öĞÂView
-	 * @param paddingWidth Èç¹ûDialog²»ÊÇ³äÂúÆÁÄ»£¬ÒªÉèÖÃÕâ¸öÖµ
+	 * æè¿°ï¼šåœ¨åº•éƒ¨æ˜¾ç¤ºä¸€ä¸ªDialog,idä¸º1,åœ¨ä¸­é—´æ˜¾ç¤ºidä¸º2.
+	 * @param id Dialogçš„ç±»å‹
+	 * @param view æŒ‡å®šä¸€ä¸ªæ–°View
+	 * @param paddingWidth å¦‚æœDialogä¸æ˜¯å……æ»¡å±å¹•ï¼Œè¦è®¾ç½®è¿™ä¸ªå€¼
 	 * @see   AbConstant.DIALOGBOTTOM
 	 */
 	public void showDialog(int id,View view,int paddingWidth) {
@@ -509,13 +509,13 @@ public abstract class AbActivity extends FragmentActivity {
 				mBottomDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 				Window window = mBottomDialog.getWindow();
 				WindowManager.LayoutParams lp = window.getAttributes();
-				//´Ë´¦¿ÉÒÔÉèÖÃdialogÏÔÊ¾µÄÎ»ÖÃ
+				//æ­¤å¤„å¯ä»¥è®¾ç½®dialogæ˜¾ç¤ºçš„ä½ç½®
 				window.setGravity(Gravity.BOTTOM); 
-				//ÉèÖÃ¿í¶È
+				//è®¾ç½®å®½åº¦
 				lp.width = diaplayWidth-paddingWidth; 
 				lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG;
 				window.setAttributes(lp); 
-				// Ìí¼Ó¶¯»­
+				// æ·»åŠ åŠ¨ç”»
 				window.setWindowAnimations(android.R.style.Animation_Dialog); 
 			}
 			mBottomDialog.setContentView(mBottomDialogView,new LayoutParams(diaplayWidth-paddingWidth,LayoutParams.WRAP_CONTENT));
@@ -527,13 +527,13 @@ public abstract class AbActivity extends FragmentActivity {
 				mCenterDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 				Window window = mCenterDialog.getWindow();
 				WindowManager.LayoutParams lp = window.getAttributes();
-				//´Ë´¦¿ÉÒÔÉèÖÃdialogÏÔÊ¾µÄÎ»ÖÃ
+				//æ­¤å¤„å¯ä»¥è®¾ç½®dialogæ˜¾ç¤ºçš„ä½ç½®
 				window.setGravity(Gravity.CENTER); 
-				//ÉèÖÃ¿í¶È
+				//è®¾ç½®å®½åº¦
 				lp.width = diaplayWidth-paddingWidth; 
 				lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG;
 				window.setAttributes(lp); 
-				// Ìí¼Ó¶¯»­
+				// æ·»åŠ åŠ¨ç”»
 				window.setWindowAnimations(android.R.style.Animation_Dialog); 
 			}
 			mCenterDialog.setContentView(mCenterDialogView,new LayoutParams(diaplayWidth-paddingWidth,LayoutParams.WRAP_CONTENT));
@@ -542,7 +542,7 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£º¶Ô»°¿ò³õÊ¼»¯.
+	 * æè¿°ï¼šå¯¹è¯æ¡†åˆå§‹åŒ–.
 	 * @param id the id
 	 * @return the dialog
 	 * @see android.app.Activity#onCreateDialog(int)
@@ -568,14 +568,14 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£ºÒÆ³ı½ø¶È¿ò.
+	 * æè¿°ï¼šç§»é™¤è¿›åº¦æ¡†.
 	 */
 	public void removeProgressDialog() {
 		removeDialog(AbConstant.DIALOGPROGRESS);
     }
 	
 	/**
-	 * ÃèÊö£ºÒÆ³ıDialog.
+	 * æè¿°ï¼šç§»é™¤Dialog.
 	 * @param id the id
 	 * @see android.app.Activity#removeDialog(int)
 	 */
@@ -584,17 +584,17 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£º¶Ô»°¿òdialog £¨È·ÈÏ£¬È¡Ïû£©.
-	 * @param title ¶Ô»°¿ò±êÌâÄÚÈİ
-	 * @param msg  ¶Ô»°¿òÌáÊ¾ÄÚÈİ
-	 * @param mOkOnClickListener  µã»÷È·ÈÏ°´Å¥µÄÊÂ¼ş¼àÌı
+	 * æè¿°ï¼šå¯¹è¯æ¡†dialog ï¼ˆç¡®è®¤ï¼Œå–æ¶ˆï¼‰.
+	 * @param title å¯¹è¯æ¡†æ ‡é¢˜å†…å®¹
+	 * @param msg  å¯¹è¯æ¡†æç¤ºå†…å®¹
+	 * @param mOkOnClickListener  ç‚¹å‡»ç¡®è®¤æŒ‰é’®çš„äº‹ä»¶ç›‘å¬
 	 */
 	public void dialogOpen(String title,String msg,DialogInterface.OnClickListener mOkOnClickListener) {
 		 AlertDialog.Builder builder = new Builder(this);
 		 builder.setMessage(msg);
 		 builder.setTitle(title);
-		 builder.setPositiveButton("È·ÈÏ",mOkOnClickListener);
-		 builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		 builder.setPositiveButton("ç¡®è®¤",mOkOnClickListener);
+		 builder.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 			   @Override
 			   public void onClick(DialogInterface dialog, int which) {
 				   dialog.dismiss();
@@ -604,9 +604,9 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£º¶Ô»°¿òdialog £¨ÎŞ°´Å¥£©.
-	 * @param title ¶Ô»°¿ò±êÌâÄÚÈİ
-	 * @param msg  ¶Ô»°¿òÌáÊ¾ÄÚÈİ
+	 * æè¿°ï¼šå¯¹è¯æ¡†dialog ï¼ˆæ— æŒ‰é’®ï¼‰.
+	 * @param title å¯¹è¯æ¡†æ ‡é¢˜å†…å®¹
+	 * @param msg  å¯¹è¯æ¡†æç¤ºå†…å®¹
 	 */
 	public void dialogOpen(String title,String msg) {
 		 AlertDialog.Builder builder = new Builder(this);
@@ -632,15 +632,15 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£º±êÌâÀ¸µÄ±³¾°Í¼.
-	 * @param res  ±³¾°Í¼×ÊÔ´ID
+	 * æè¿°ï¼šæ ‡é¢˜æ çš„èƒŒæ™¯å›¾.
+	 * @param res  èƒŒæ™¯å›¾èµ„æºID
 	 */
 	public void setTitleLayoutBackground(int res) {
 		titleLayout.setBackgroundResource(res);
 	}
 	
 	/**
-	 * ÃèÊö£º±êÌâÎÄ×ÖµÄ¶ÔÆë.
+	 * æè¿°ï¼šæ ‡é¢˜æ–‡å­—çš„å¯¹é½.
 	 * @param left the left
 	 * @param top the top
 	 * @param right the right
@@ -652,41 +652,41 @@ public abstract class AbActivity extends FragmentActivity {
 	
 	
 	/**
-	 * ÃèÊö£º±êÌâÀ¸µÄ±³¾°Í¼.
-	 * @param color  ±³¾°ÑÕÉ«Öµ
+	 * æè¿°ï¼šæ ‡é¢˜æ çš„èƒŒæ™¯å›¾.
+	 * @param color  èƒŒæ™¯é¢œè‰²å€¼
 	 */
 	public void setTitleLayoutBackgroundColor(int color) {
 		titleLayout.setBackgroundColor(color);
 	}
 
 	/**
-	 * ÃèÊö£º±êÌâÎÄ×Ö×ÖºÅ.
-	 * @param titleTextSize  ÎÄ×Ö×ÖºÅ
+	 * æè¿°ï¼šæ ‡é¢˜æ–‡å­—å­—å·.
+	 * @param titleTextSize  æ–‡å­—å­—å·
 	 */
 	public void setTitleTextSize(int titleTextSize) {
 		this.titleTextBtn.setTextSize(titleTextSize);
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃ±êÌâÎÄ×Ö¶ÔÆë·½Ê½
-	 * ¸ù¾İÓÒ±ßµÄ¾ßÌåÇé¿öÅĞ¶¨·½Ïò£º
-	 * £¨1£©ÖĞ¼ä¿¿½ü Gravity.CENTER,Gravity.CENTER
-	 * £¨2£©×ó±ß¾Ó×ó ÓÒ±ß¾ÓÓÒGravity.LEFT,Gravity.RIGHT
-	 * £¨3£©×ó±ß¾ÓÖĞ£¬ÓÒ±ß¾ÓÓÒGravity.CENTER,Gravity.RIGHT
-	 * £¨4£©×ó±ß¾ÓÓÒ£¬ÓÒ±ß¾ÓÓÒGravity.RIGHT,Gravity.RIGHT
-	 * ±ØĞëÔÚaddRightView(view)·½·¨ºóÉèÖÃ
-	 * @param gravity1  ±êÌâ¶ÔÆë·½Ê½
-	 * @param gravity2  ÓÒ±ß²¼¾Ö¶ÔÆë·½Ê½
+	 * æè¿°ï¼šè®¾ç½®æ ‡é¢˜æ–‡å­—å¯¹é½æ–¹å¼
+	 * æ ¹æ®å³è¾¹çš„å…·ä½“æƒ…å†µåˆ¤å®šæ–¹å‘ï¼š
+	 * ï¼ˆ1ï¼‰ä¸­é—´é è¿‘ Gravity.CENTER,Gravity.CENTER
+	 * ï¼ˆ2ï¼‰å·¦è¾¹å±…å·¦ å³è¾¹å±…å³Gravity.LEFT,Gravity.RIGHT
+	 * ï¼ˆ3ï¼‰å·¦è¾¹å±…ä¸­ï¼Œå³è¾¹å±…å³Gravity.CENTER,Gravity.RIGHT
+	 * ï¼ˆ4ï¼‰å·¦è¾¹å±…å³ï¼Œå³è¾¹å±…å³Gravity.RIGHT,Gravity.RIGHT
+	 * å¿…é¡»åœ¨addRightView(view)æ–¹æ³•åè®¾ç½®
+	 * @param gravity1  æ ‡é¢˜å¯¹é½æ–¹å¼
+	 * @param gravity2  å³è¾¹å¸ƒå±€å¯¹é½æ–¹å¼
 	 */
 	public void setTitleLayoutGravity(int gravity1,int gravity2) {
 		AbViewUtil.measureView(this.rightLayout);
 		AbViewUtil.measureView(this.logoView);
 		int leftWidth = this.logoView.getMeasuredWidth();
 		int rightWidth = this.rightLayout.getMeasuredWidth();
-		if(D)Log.d(TAG, "²âÁ¿²¼¾ÖµÄ¿í¶È£º"+leftWidth+","+rightWidth);
+		if(D)Log.d(TAG, "æµ‹é‡å¸ƒå±€çš„å®½åº¦ï¼š"+leftWidth+","+rightWidth);
 		this.titleTextLayoutParams.rightMargin = 0;
 		this.titleTextLayoutParams.leftMargin = 0;
-		//È«²¿ÖĞ¼ä¿¿
+		//å…¨éƒ¨ä¸­é—´é 
 		if((gravity1 == Gravity.CENTER_HORIZONTAL || gravity1 == Gravity.CENTER) ){
             if(leftWidth==0 && rightWidth==0){
             	this.titleTextLayout.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -710,11 +710,11 @@ public abstract class AbActivity extends FragmentActivity {
 					}
 				}
 			}
-		//×óÓÒ
+		//å·¦å³
 		}else if(gravity1 == Gravity.LEFT && gravity2 == Gravity.RIGHT){
 			this.titleTextLayout.setGravity(Gravity.LEFT);
 			this.rightLayout.setHorizontalGravity(Gravity.RIGHT);
-		//È«²¿ÓÒ¿¿
+		//å…¨éƒ¨å³é 
 		}else if(gravity1 == Gravity.RIGHT && gravity2 == Gravity.RIGHT){
 			this.titleTextLayout.setGravity(Gravity.RIGHT);
 			this.rightLayout.setHorizontalGravity(Gravity.RIGHT);
@@ -726,7 +726,7 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£º»ñÈ¡±êÊ¾±êÌâÎÄ±¾µÄButton.
+	 * æè¿°ï¼šè·å–æ ‡ç¤ºæ ‡é¢˜æ–‡æœ¬çš„Button.
 	 * @return the title Button view
 	 */
 	public Button getTitleTextButton() {
@@ -734,12 +734,12 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃ±êÌâ×ÖÌå´ÖÌå
+	 * æè¿°ï¼šè®¾ç½®æ ‡é¢˜å­—ä½“ç²—ä½“
 	 */
 	public void setTitleTextBold(boolean bold){
 		TextPaint paint = titleTextBtn.getPaint();  
 		if(bold){
-			//´ÖÌå
+			//ç²—ä½“
 			paint.setFakeBoldText(true); 
 		}else{
 			paint.setFakeBoldText(false); 
@@ -748,7 +748,7 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃ±êÌâ±³¾°
+	 * æè¿°ï¼šè®¾ç½®æ ‡é¢˜èƒŒæ™¯
 	 * @param resId
 	 */
 	public void setTitleTextBackgroundResource(int resId){
@@ -756,15 +756,15 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃ±êÌâ±³¾°.
-	 * @param d  ±³¾°Í¼
+	 * æè¿°ï¼šè®¾ç½®æ ‡é¢˜èƒŒæ™¯.
+	 * @param d  èƒŒæ™¯å›¾
 	 */
 	public void setTitleLayoutBackgroundDrawable(Drawable d) {
 		titleLayout.setBackgroundDrawable(d);
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃ±êÌâ±³¾°
+	 * æè¿°ï¼šè®¾ç½®æ ‡é¢˜èƒŒæ™¯
 	 * @param resId
 	 */
 	public void setTitleTextBackgroundDrawable(Drawable drawable){
@@ -772,7 +772,7 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£º´ò¿ª¹Ø±ÕÖ¡Êı²âÊÔ
+	 * æè¿°ï¼šæ‰“å¼€å…³é—­å¸§æ•°æµ‹è¯•
 	 * <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 	 * lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG
 	 *
@@ -813,7 +813,7 @@ public abstract class AbActivity extends FragmentActivity {
 						}
 	                    mMonitorParams.x = paramX + dx;
 						mMonitorParams.y = paramY + dy;
-						// ¸üĞÂĞü¸¡´°Î»ÖÃ
+						// æ›´æ–°æ‚¬æµ®çª—ä½ç½®
 						mWindowManager.updateViewLayout(mAbMonitorView, mMonitorParams);
 						break;
 					}
@@ -826,7 +826,7 @@ public abstract class AbActivity extends FragmentActivity {
 	}
 	
 	/**
-	 * ÃèÊö£º¹Ø±ÕÖ¡Êı²âÊÔ.
+	 * æè¿°ï¼šå…³é—­å¸§æ•°æµ‹è¯•.
 	 */
 	public void closeMonitor(){
 		if(mMonitorOpened) {
@@ -843,7 +843,7 @@ public abstract class AbActivity extends FragmentActivity {
 	
 
 	/**
-	 * ÃèÊö£º·µ»Ø.
+	 * æè¿°ï¼šè¿”å›.
 	 *
 	 * @see android.support.v4.app.FragmentActivity#onBackPressed()
 	 */

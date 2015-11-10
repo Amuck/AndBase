@@ -28,8 +28,8 @@ import com.ab.util.AbFileUtil;
 
 // TODO: Auto-generated Javadoc
 /**
- * Ãû³Æ£ºAbPlayView
- * ÃèÊö£º¿É²¥·ÅÏÔÊ¾µÄView.
+ * åç§°ï¼šAbPlayView
+ * æè¿°ï¼šå¯æ’­æ”¾æ˜¾ç¤ºçš„View.
  *
  * @author zhaoqp
  * @date 2011-11-28
@@ -113,7 +113,7 @@ public class AbPlayView extends LinearLayout {
 		RelativeLayout mRelativeLayout = new RelativeLayout(context);
 		
 		mViewPager = new ViewPager(context);
-		//Î»ÖÃµÄµã
+		//ä½ç½®çš„ç‚¹
 		pageLineLayout = new LinearLayout(context);
 		
 		RelativeLayout.LayoutParams lp1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -212,7 +212,7 @@ public class AbPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£ºÌí¼Ó¿É²¥·ÅÊÓÍ¼.
+	 * æè¿°ï¼šæ·»åŠ å¯æ’­æ”¾è§†å›¾.
 	 *
 	 * @param view the view
 	 */
@@ -223,7 +223,7 @@ public class AbPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£ºÌí¼Ó¿É²¥·ÅÊÓÍ¼ÁĞ±í.
+	 * æè¿°ï¼šæ·»åŠ å¯æ’­æ”¾è§†å›¾åˆ—è¡¨.
 	 *
 	 * @param views the views
 	 */
@@ -234,7 +234,7 @@ public class AbPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉ¾³ı¿É²¥·ÅÊÓÍ¼.
+	 * æè¿°ï¼šåˆ é™¤å¯æ’­æ”¾è§†å›¾.
 	 *
 	 */
 	@Override
@@ -247,7 +247,7 @@ public class AbPlayView extends LinearLayout {
 	
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃÒ³ÃæÇĞ»»ÊÂ¼ş.
+	 * æè¿°ï¼šè®¾ç½®é¡µé¢åˆ‡æ¢äº‹ä»¶.
 	 *
 	 * @param position the position
 	 */
@@ -259,7 +259,7 @@ public class AbPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃÒ³ÃæÇĞ»»ÊÂ¼ş.
+	 * æè¿°ï¼šè®¾ç½®é¡µé¢åˆ‡æ¢äº‹ä»¶.
 	 *
 	 * @param position the position
 	 */
@@ -297,7 +297,7 @@ public class AbPlayView extends LinearLayout {
 
 	
 	/**
-	 * ÃèÊö£º×Ô¶¯ÂÖ²¥.
+	 * æè¿°ï¼šè‡ªåŠ¨è½®æ’­.
 	 */
 	public void startPlay(){
 		if(handler!=null){
@@ -306,7 +306,7 @@ public class AbPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£º×Ô¶¯ÂÖ²¥.
+	 * æè¿°ï¼šè‡ªåŠ¨è½®æ’­.
 	 */
 	public void stopPlay(){
 		if(handler!=null){
@@ -315,7 +315,7 @@ public class AbPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃÒ³ÃæÇĞ»»µÄ¼àÌıÆ÷.
+	 * æè¿°ï¼šè®¾ç½®é¡µé¢åˆ‡æ¢çš„ç›‘å¬å™¨.
 	 *
 	 * @param abChangeListener the new on page change listener
 	 */
@@ -324,7 +324,7 @@ public class AbPlayView extends LinearLayout {
 	}
     
     /**
-     * ÃèÊö£ºÉèÖÃÒ³Ãæ»¬¶¯µÄ¼àÌıÆ÷.
+     * æè¿°ï¼šè®¾ç½®é¡µé¢æ»‘åŠ¨çš„ç›‘å¬å™¨.
      *
      * @param abScrolledListener the new on page scrolled listener
      */
@@ -347,7 +347,7 @@ public class AbPlayView extends LinearLayout {
 	}
 
 	/**
-	 * ÃèÊö£º»ñÈ¡Õâ¸ö»¬¶¯µÄViewPagerÀà.
+	 * æè¿°ï¼šè·å–è¿™ä¸ªæ»‘åŠ¨çš„ViewPagerç±».
 	 *
 	 * @return the view pager
 	 */
@@ -356,7 +356,7 @@ public class AbPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£º»ñÈ¡µ±Ç°µÄViewµÄÊıÁ¿.
+	 * æè¿°ï¼šè·å–å½“å‰çš„Viewçš„æ•°é‡.
 	 *
 	 * @return the count
 	 */
@@ -365,7 +365,7 @@ public class AbPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃÒ³ÏÔÊ¾ÌõµÄÎ»ÖÃ,ÔÚAddViewÇ°ÉèÖÃ.
+	 * æè¿°ï¼šè®¾ç½®é¡µæ˜¾ç¤ºæ¡çš„ä½ç½®,åœ¨AddViewå‰è®¾ç½®.
 	 *
 	 * @param horizontalGravity the new page line horizontal gravity
 	 */

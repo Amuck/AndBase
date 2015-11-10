@@ -7,27 +7,27 @@ import java.math.BigDecimal;
 
 // TODO: Auto-generated Javadoc
 /**
- * ÃèÊö£ºÊıÑ§´¦ÀíÀà.
+ * æè¿°ï¼šæ•°å­¦å¤„ç†ç±».
  *
  * @author zhaoqp
- * @date£º2013-1-18 ÉÏÎç10:14:44
+ * @dateï¼š2013-1-18 ä¸Šåˆ10:14:44
  * @version v1.0
  */
 public class AbMathUtil{
 
   /**
-   * ËÄÉáÎåÈë.
+   * å››èˆäº”å…¥.
    *
-   * @param number  Ô­Êı
-   * @param decimal ±£Áô¼¸Î»Ğ¡Êı
-   * @return ËÄÉáÎåÈëºóµÄÖµ
+   * @param number  åŸæ•°
+   * @param decimal ä¿ç•™å‡ ä½å°æ•°
+   * @return å››èˆäº”å…¥åçš„å€¼
    */
   public static BigDecimal round(double number, int decimal){
     return new BigDecimal(number).setScale(decimal, BigDecimal.ROUND_HALF_UP);
   }
   
   /**
-   * ÃèÊö£º×Ö½ÚÊı×é×ª»»³É16½øÖÆ´®.
+   * æè¿°ï¼šå­—èŠ‚æ•°ç»„è½¬æ¢æˆ16è¿›åˆ¶ä¸².
    *
    * @param b the b
    * @param length the length

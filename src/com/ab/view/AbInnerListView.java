@@ -68,13 +68,13 @@ public class AbInnerListView extends ListView {
 	}
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param widthMeasureSpec the width measure spec
 	 * @param heightMeasureSpec the height measure spec
 	 * @see android.widget.ListView#onMeasure(int, int)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:48
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:48
 	 * @version v1.0
 	 */
 	@Override
@@ -88,13 +88,13 @@ public class AbInnerListView extends ListView {
 	}
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param ev the ev
 	 * @return true, if successful
 	 * @see android.widget.AbsListView#onInterceptTouchEvent(android.view.MotionEvent)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:48
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:48
 	 * @version v1.0
 	 */
 	@Override

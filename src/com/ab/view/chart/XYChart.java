@@ -53,16 +53,16 @@ public abstract class XYChart extends AbstractChart {
    */
   private Map<Integer, List<ClickableArea>> clickableAreas = new HashMap<Integer, List<ClickableArea>>();
   
-  /** µãµÄÖµ. */
+  /** ç‚¹çš„å€¼. */
   private Map<Integer, List<Double>> values = new HashMap<Integer, List<Double>>();;
   
-  /** µãµÄÕæÊµ×ø±ê. */
+  /** ç‚¹çš„çœŸå®åæ ‡. */
   private Map<Integer, List<Float>> points = new HashMap<Integer, List<Float>>();
   
-  /** Ã¿¸öÊı¾İµãµÄ¼òÒª ËµÃ÷. */
+  /** æ¯ä¸ªæ•°æ®ç‚¹çš„ç®€è¦ è¯´æ˜. */
   private final Map<Integer, List<Integer>> colors = new HashMap<Integer, List<Integer>>();
   
-  /** Ã¿¸öÊı¾İµãµÄ¼òÒª ËµÃ÷. */
+  /** æ¯ä¸ªæ•°æ®ç‚¹çš„ç®€è¦ è¯´æ˜. */
   private final Map<Integer, List<String>> explains = new HashMap<Integer, List<String>>();
 
   
@@ -80,7 +80,7 @@ public abstract class XYChart extends AbstractChart {
    */
   public XYChart(XYMultipleSeriesDataset dataset, XYMultipleSeriesRenderer renderer) {
     mDataset = dataset;
-    Log.d("XYChart", "XYMultipleSeriesDataset ÉèÖÃ³É¹¦");
+    Log.d("XYChart", "XYMultipleSeriesDataset è®¾ç½®æˆåŠŸ");
     mRenderer = renderer;
   }
 
@@ -109,7 +109,7 @@ public abstract class XYChart extends AbstractChart {
    */
   public void draw(Canvas canvas, int x, int y, int width, int height, Paint paint) {
 	
-	Log.d("XYChart", "drawÔÚÕâÀï³õÊ¼»¯µãµÄÊı¾İµÄ");
+	Log.d("XYChart", "drawåœ¨è¿™é‡Œåˆå§‹åŒ–ç‚¹çš„æ•°æ®çš„");
     paint.setAntiAlias(mRenderer.isAntialiasing());
     int legendSize = getLegendSize(mRenderer, height / 5, mRenderer.getAxisTitleTextSize());
     int[] margins = mRenderer.getMargins();
@@ -162,7 +162,7 @@ public abstract class XYChart extends AbstractChart {
     if (maxScaleNumber < 0) {
       return;
     }
-    //×ø±êÖáµÄÖµ
+    //åæ ‡è½´çš„å€¼
     double[] minX = new double[maxScaleNumber];
     double[] maxX = new double[maxScaleNumber];
     double[] minY = new double[maxScaleNumber];
@@ -223,9 +223,9 @@ public abstract class XYChart extends AbstractChart {
       }
     }
     
-    //»æÖÆÁÙ½çÏß
+    //ç»˜åˆ¶ä¸´ç•Œçº¿
     double[] yLimitArray = mRenderer.getmYLimitsLine();
-    //System.out.println("ÁÙ½çÏß»æÖÆ:"+yLimitArray);
+    //System.out.println("ä¸´ç•Œçº¿ç»˜åˆ¶:"+yLimitArray);
     if (yLimitArray!=null) {
       for (int h = 0; h < maxScaleNumber; h++) {
         Align axisAlign = mRenderer.getYAxisAlign(h);
@@ -235,13 +235,13 @@ public abstract class XYChart extends AbstractChart {
               * (yLimit.doubleValue() - minY[h]));
           int color = mRenderer.getmYLimitsLineColor()[k];
           paint.setColor(color);
-          //System.out.println("drawÁÙ½çÏß:"+ (float)(double)yLimit);
+          //System.out.println("drawä¸´ç•Œçº¿:"+ (float)(double)yLimit);
           if(k+1<yLimitArray.length){
             Double yLimit2 = yLimitArray[k+1];
             int color2 = mRenderer.getmYLimitsLineColor()[k+1];
             float yLabel2 = (float) (bottom - yPixelsPerUnit[h]
                 * (yLimit2.doubleValue() - minY[h]));
-            //µÚÒ»ÌõºÍµÚ¶şÌõÍ¬É«»®¾ØĞÎ
+            //ç¬¬ä¸€æ¡å’Œç¬¬äºŒæ¡åŒè‰²åˆ’çŸ©å½¢
             if(color==color2){
               canvas.drawRect(left, yLabel, right,yLabel2, paint);
             }else{
@@ -276,14 +276,14 @@ public abstract class XYChart extends AbstractChart {
       // int valuesLength = originalValuesLength;
       // int length = valuesLength * 2;
 
-      //°ÑÖµ×ª»¯Îª×ø±êµã ĞÎÈç£¨1,2£¬2,3£© ±êÊ¾2¸öµã£¬x£½1 y£½2ÊÇÒ»¸öµã  £¬ÁíÒ»¸öµãÊÇx£½2 y£½3
+      //æŠŠå€¼è½¬åŒ–ä¸ºåæ ‡ç‚¹ å½¢å¦‚ï¼ˆ1,2ï¼Œ2,3ï¼‰ æ ‡ç¤º2ä¸ªç‚¹ï¼Œxï¼1 yï¼2æ˜¯ä¸€ä¸ªç‚¹  ï¼Œå¦ä¸€ä¸ªç‚¹æ˜¯xï¼2 yï¼3
       List<Float> pointsIndex = new ArrayList<Float>();
-      //µãµÄÖµ
+      //ç‚¹çš„å€¼
       List<Double> valuesIndex = new ArrayList<Double>();
-      //µãÑÕÉ«µÄÖµ
+      //ç‚¹é¢œè‰²çš„å€¼
       List<Integer> colorsIndex = new ArrayList<Integer>();
       
-      //µãÖµµÄËµÃ÷
+      //ç‚¹å€¼çš„è¯´æ˜
       List<String> explainsIndex = new ArrayList<String>();
      
       
@@ -332,7 +332,7 @@ public abstract class XYChart extends AbstractChart {
         }
       }
       
-      //ÉèÖÃËùÓĞÖµ
+      //è®¾ç½®æ‰€æœ‰å€¼
       points.put(i, pointsIndex);
       values.put(i, valuesIndex);
       colors.put(i, colorsIndex);
@@ -619,8 +619,8 @@ public abstract class XYChart extends AbstractChart {
 
   /**
    * The graphical representation of the series values as text.
-   * »æÖÆµãÉÏµÄÎÄ±¾
-   * ÏÔÊ¾µÄÎÄ±¾ÅĞ¶ÏÁ½µãÖ®¼ä¾àÀë100ÒÔÄÚ²»ÏÔÊ¾ÖĞ¼äµÄµãµÄÎÄ±¾
+   * ç»˜åˆ¶ç‚¹ä¸Šçš„æ–‡æœ¬
+   * æ˜¾ç¤ºçš„æ–‡æœ¬åˆ¤æ–­ä¸¤ç‚¹ä¹‹é—´è·ç¦»100ä»¥å†…ä¸æ˜¾ç¤ºä¸­é—´çš„ç‚¹çš„æ–‡æœ¬
    * @param canvas the canvas to paint to
    * @param series the series to be painted
    * @param renderer the series renderer
@@ -647,13 +647,13 @@ public abstract class XYChart extends AbstractChart {
               drawText(canvas, getLabel(series.getY(startIndex + 1)), points[2], points[3]
                   - renderer.getChartValuesSpacing(), paint, 0);
             }else{
-              //²»ÊÇ0ÏÔÊ¾
+              //ä¸æ˜¯0æ˜¾ç¤º
               if(points[1]!=0){
                 // first point
                 drawText(canvas, getLabel(series.getY(startIndex)), points[0], points[1]
                     - renderer.getChartValuesSpacing(), paint, 0);
               }
-              //²»ÊÇ0ÏÔÊ¾
+              //ä¸æ˜¯0æ˜¾ç¤º
               if(points[3]!=0){
                 // second point
                 drawText(canvas, getLabel(series.getY(startIndex + 1)), points[2], points[3]
@@ -671,7 +671,7 @@ public abstract class XYChart extends AbstractChart {
               drawText(canvas, getLabel(series.getY(startIndex + k / 2)), points[k], points[k + 1]
                   - renderer.getChartValuesSpacing(), paint, 0);
            }else{
-             //²»ÊÇ0ÏÔÊ¾
+             //ä¸æ˜¯0æ˜¾ç¤º
              if(points[k + 1]!=0){
                drawText(canvas, getLabel(series.getY(startIndex + k / 2)), points[k], points[k + 1]
                    - renderer.getChartValuesSpacing(), paint, 0);
@@ -690,7 +690,7 @@ public abstract class XYChart extends AbstractChart {
           drawText(canvas, getLabel(series.getY(startIndex + k / 2)), points[k], points[k + 1]
               - renderer.getChartValuesSpacing(), paint, 0);
        }else{
-         //²»ÊÇ0ÏÔÊ¾
+         //ä¸æ˜¯0æ˜¾ç¤º
          if(points[k + 1]!=0){
            drawText(canvas, getLabel(series.getY(startIndex + k / 2)), points[k], points[k + 1]
                - renderer.getChartValuesSpacing(), paint, 0);
@@ -880,7 +880,7 @@ public abstract class XYChart extends AbstractChart {
   }
 
   /**
-   * ÃèÊö£º»ñÈ¡Õâ¸öXY¸´ºÏäÖÈ¾Æ÷.
+   * æè¿°ï¼šè·å–è¿™ä¸ªXYå¤åˆæ¸²æŸ“å™¨.
    *
    * @return the renderer
    */
@@ -997,13 +997,13 @@ public abstract class XYChart extends AbstractChart {
   }
 
   /**
-   * ÃèÊö£ºTODO.
+   * æè¿°ï¼šTODO.
    *
    * @param screenPoint the screen point
    * @return the series and point for screen coordinate
    * @see com.ab.view.chart.AbstractChart#getSeriesAndPointForScreenCoordinate(com.ab.view.chart.Point)
    * @author: zhaoqp
-   * @date£º2013-6-17 ÉÏÎç9:04:49
+   * @dateï¼š2013-6-17 ä¸Šåˆ9:04:49
    * @version v1.0
    */
   public SeriesSelection getSeriesAndPointForScreenCoordinate(final Point screenPoint) {
@@ -1101,8 +1101,8 @@ public abstract class XYChart extends AbstractChart {
   public abstract String getChartType();
 
   /**
-   * ÃèÊö£º»ñÈ¡µãµÄ×ø±êÖµ
-   * ĞÎÈç£¨1,2£¬2,3£© ±êÊ¾2¸öµã£¬x£½1 y£½2ÊÇÒ»¸öµã  £¬ÁíÒ»¸öµãÊÇx£½2 y£½3.
+   * æè¿°ï¼šè·å–ç‚¹çš„åæ ‡å€¼
+   * å½¢å¦‚ï¼ˆ1,2ï¼Œ2,3ï¼‰ æ ‡ç¤º2ä¸ªç‚¹ï¼Œxï¼1 yï¼2æ˜¯ä¸€ä¸ªç‚¹  ï¼Œå¦ä¸€ä¸ªç‚¹æ˜¯xï¼2 yï¼3.
    *
    * @return the points
    */
@@ -1111,7 +1111,7 @@ public abstract class XYChart extends AbstractChart {
   }
 
   /**
-   * ÃèÊö£º»ñÈ¡µãµÄÖµ.
+   * æè¿°ï¼šè·å–ç‚¹çš„å€¼.
    *
    * @return the values
    */
@@ -1120,7 +1120,7 @@ public abstract class XYChart extends AbstractChart {
   }
   
   /**
-   * ÃèÊö£º»ñÈ¡µãµÄËµÃ÷.
+   * æè¿°ï¼šè·å–ç‚¹çš„è¯´æ˜.
    *
    * @return the explains
    */

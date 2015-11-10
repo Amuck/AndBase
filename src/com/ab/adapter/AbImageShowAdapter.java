@@ -26,7 +26,7 @@ import com.ab.util.AbFileUtil;
 
 // TODO: Auto-generated Javadoc
 /**
- * ÊÊÅäÆ÷ ÍøÂçURLµÄÍ¼Æ¬.
+ * é€‚é…å™¨ ç½‘ç»œURLçš„å›¾ç‰‡.
  */
 public class AbImageShowAdapter extends BaseAdapter {
 	
@@ -61,7 +61,7 @@ public class AbImageShowAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * ÃèÊö£º»ñÈ¡ÊıÁ¿.
+	 * æè¿°ï¼šè·å–æ•°é‡.
 	 *
 	 * @return the count
 	 * @see android.widget.Adapter#getCount()
@@ -71,7 +71,7 @@ public class AbImageShowAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * ÃèÊö£º»ñÈ¡Ë÷ÒıÎ»ÖÃµÄÂ·¾¶.
+	 * æè¿°ï¼šè·å–ç´¢å¼•ä½ç½®çš„è·¯å¾„.
 	 *
 	 * @param position the position
 	 * @return the item
@@ -82,7 +82,7 @@ public class AbImageShowAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * ÃèÊö£º»ñÈ¡Î»ÖÃ.
+	 * æè¿°ï¼šè·å–ä½ç½®.
 	 *
 	 * @param position the position
 	 * @return the item id
@@ -93,7 +93,7 @@ public class AbImageShowAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * ÃèÊö£ºÏÔÊ¾View.
+	 * æè¿°ï¼šæ˜¾ç¤ºView.
 	 *
 	 * @param position the position
 	 * @param convertView the convert view
@@ -136,14 +136,14 @@ public class AbImageShowAdapter extends BaseAdapter {
 		holder.mImageView1.setImageBitmap(AbFileUtil.getBitmapFormSrc("image/image_loading.png"));
 		if(!TextUtils.isEmpty(imagePath)){
 			if(imagePath.indexOf("http://")!=-1){
-				  //ÉèÖÃÏÂÔØÏî 
+				  //è®¾ç½®ä¸‹è½½é¡¹ 
 		          AbImageDownloadItem item = new AbImageDownloadItem(); 
-			      //ÉèÖÃÏÔÊ¾µÄ´óĞ¡
+			      //è®¾ç½®æ˜¾ç¤ºçš„å¤§å°
 			      item.width = mWidth;
 			      item.height = mHeight;
 			      item.imageUrl = imagePath; 
 			      item.type = AbConstant.SCALEIMG;
-			      //ÏÂÔØÍê³Éºó¸üĞÂ½çÃæ
+			      //ä¸‹è½½å®Œæˆåæ›´æ–°ç•Œé¢
 			      item.callback = new AbImageDownloadCallback() { 
 			            @Override 
 			            public void update(final Bitmap bitmap, String imageUrl) { 
@@ -161,7 +161,7 @@ public class AbImageShowAdapter extends BaseAdapter {
 			      }; 
 			      mAbImageDownloadQueue.download(item); 
 			}else if(imagePath.indexOf("/")==-1){
-				//Ë÷ÒıÍ¼Æ¬
+				//ç´¢å¼•å›¾ç‰‡
 				try {
 					int res  = Integer.parseInt(imagePath);
 					holder.mImageView1.setImageDrawable(mContext.getResources().getDrawable(res));
@@ -173,13 +173,13 @@ public class AbImageShowAdapter extends BaseAdapter {
 				if(mBitmap!=null){
 					holder.mImageView1.setImageBitmap(mBitmap);
 				}else{
-					// ÎŞÍ¼Æ¬Ê±ÏÔÊ¾
+					// æ— å›¾ç‰‡æ—¶æ˜¾ç¤º
 					holder.mImageView1.setImageBitmap(AbFileUtil.getBitmapFormSrc("image/image_error.png"));
 				}
 			}
 			
 		}else{
-			// ÎŞÍ¼Æ¬Ê±ÏÔÊ¾
+			// æ— å›¾ç‰‡æ—¶æ˜¾ç¤º
 			holder.mImageView1.setImageBitmap(AbFileUtil.getBitmapFormSrc("image/image_no.png"));
 	    }
 		holder.mImageView1.setAdjustViewBounds(true);
@@ -188,7 +188,7 @@ public class AbImageShowAdapter extends BaseAdapter {
 	
 	
 	/**
-	 * Ôö¼Ó²¢¸Ä±äÊÓÍ¼.
+	 * å¢åŠ å¹¶æ”¹å˜è§†å›¾.
 	 * @param position the position
 	 * @param imagePaths the image paths
 	 */
@@ -198,7 +198,7 @@ public class AbImageShowAdapter extends BaseAdapter {
 	}
 	
 	/**
-	 * Ôö¼Ó¶àÌõ²¢¸Ä±äÊÓÍ¼.
+	 * å¢åŠ å¤šæ¡å¹¶æ”¹å˜è§†å›¾.
 	 * @param imagePaths the image paths
 	 */
 	public void addItems(List<String> imagePaths) {
@@ -207,7 +207,7 @@ public class AbImageShowAdapter extends BaseAdapter {
 	}
 	
 	/**
-	 * Ôö¼Ó¶àÌõ²¢¸Ä±äÊÓÍ¼.
+	 * å¢åŠ å¤šæ¡å¹¶æ”¹å˜è§†å›¾.
 	 */
 	public void clearItems() {
 		mImagePaths.clear();
@@ -215,7 +215,7 @@ public class AbImageShowAdapter extends BaseAdapter {
 	}
 	
 	/**
-	 * ViewÔªËØ.
+	 * Viewå…ƒç´ .
 	 */
 	public static class ViewHolder {
 		

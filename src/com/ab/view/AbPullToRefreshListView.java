@@ -33,10 +33,10 @@ import com.ab.util.AbFileUtil;
 // TODO: Auto-generated Javadoc
 
 /**
- * ÃèÊö£ºÏÂÀ­Ë¢ĞÂÓëÉÏÀ­·ÖÒ³µÄListView.
+ * æè¿°ï¼šä¸‹æ‹‰åˆ·æ–°ä¸ä¸Šæ‹‰åˆ†é¡µçš„ListView.
  *
  * @author zhaoqp
- * @date£º2013-2-19 ÉÏÎç10:58:51
+ * @dateï¼š2013-2-19 ä¸Šåˆ10:58:51
  * @version v1.0
  */
 public class AbPullToRefreshListView extends ListView implements OnScrollListener {
@@ -44,7 +44,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	/** The tag. */
 	private String TAG = "AbPullToRefreshListView";
 	
-	/** ²¼¾Ö²ÎÊı. */
+	/** å¸ƒå±€å‚æ•°. */
 	public LinearLayout.LayoutParams layoutParamsFF = null;
 	
 	/** The layout params fw. */
@@ -63,10 +63,10 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	/** The Constant PULL_To_REFRESH. */
 	private final static int PULL_To_REFRESH = 1;
 	
-	/** ÕıÔÚË¢ĞÂ. */
+	/** æ­£åœ¨åˆ·æ–°. */
 	private final static int REFRESHING = 2;
 	
-	/** Ë¢ĞÂÍê³É. */
+	/** åˆ·æ–°å®Œæˆ. */
 	private final static int DONE = 3;
 	
 	/** The Constant LOADING. */
@@ -75,7 +75,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	/** The Constant RATIO. */
 	private final static int RATIO = 3;
 	
-	/** ¶¥²¿Ë¢ĞÂÀ¸. */
+	/** é¡¶éƒ¨åˆ·æ–°æ . */
 	private LinearLayout headerView;
 	
 	/** The tips textview. */
@@ -93,7 +93,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	/** The arrow image. */
 	private Bitmap arrowImage = null;
 	
-	/** µ×²¿Ë¢ĞÂÀ¸. */
+	/** åº•éƒ¨åˆ·æ–°æ . */
 	private LinearLayout footerView;
 	
 	/** The footer textview. */
@@ -102,10 +102,10 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	/** The footer progress bar. */
 	private ProgressBar footerProgressBar;
 	
-	/** ÎŞÊı¾İÊ±ÏÔÊ¾µÄÒ»Ìõ. */
+	/** æ— æ•°æ®æ—¶æ˜¾ç¤ºçš„ä¸€æ¡. */
 	private LinearLayout nodataView;
 	
-	/** Êı¾İÏà¹Ø. */
+	/** æ•°æ®ç›¸å…³. */
 	private BaseAdapter mAdapter = null;
 	
 	/** The net get. */
@@ -117,7 +117,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	/** The item scroll. */
 	private AbHttpItem itemScroll = null;
 
-	/** ½çÃæ¿ØÖÆÏà¹Ø. */
+	/** ç•Œé¢æ§åˆ¶ç›¸å…³. */
 	private RotateAnimation animation;
 	
 	/** The reverse animation. */
@@ -152,7 +152,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	
 	//private int i = 1;
 	
-	//±£´æÉÏÒ»´ÎµÄË¢ĞÂÊ±¼ä
+	//ä¿å­˜ä¸Šä¸€æ¬¡çš„åˆ·æ–°æ—¶é—´
 	/** The last refresh time. */
 	private String lastRefreshTime = null;
 
@@ -178,7 +178,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	}
 
 	/**
-	 * ³õÊ¼»¯²¼¾Ö.
+	 * åˆå§‹åŒ–å¸ƒå±€.
 	 *
 	 * @param context the context
 	 */
@@ -191,16 +191,16 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 		
 		lastRefreshTime = AbDateUtil.getCurrentDate(AbDateUtil.dateFormatHMS);
 		
-		//¶¥²¿Ë¢ĞÂÀ¸ÕûÌåÄÚÈİ
+		//é¡¶éƒ¨åˆ·æ–°æ æ•´ä½“å†…å®¹
 		headerView = new LinearLayout(context);
 		headerView.setOrientation(LinearLayout.HORIZONTAL);
 		headerView.setBackgroundColor(Color.rgb(225, 225,225));
 		headerView.setGravity(Gravity.CENTER); 
 		
-		//ÏÔÊ¾¼ıÍ·Óë½ø¶È
+		//æ˜¾ç¤ºç®­å¤´ä¸è¿›åº¦
 		FrameLayout headImage =  new FrameLayout(context);
 		arrowImageView = new ImageView(context);
-		//´Ó°üÀï»ñÈ¡µÄ¼ıÍ·Í¼Æ¬
+		//ä»åŒ…é‡Œè·å–çš„ç®­å¤´å›¾ç‰‡
 		arrowImage = AbFileUtil.getBitmapFormSrc("image/arrow.png");
 		arrowImageView.setImageBitmap(arrowImage);
 		arrowImageView.setMinimumWidth(50);
@@ -212,7 +212,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 		headImage.addView(arrowImageView,layoutParamsWW);
 		headImage.addView(headerProgressBar,layoutParamsWW);
 		
-		//¶¥²¿Ë¢ĞÂÀ¸ÎÄ±¾ÄÚÈİ
+		//é¡¶éƒ¨åˆ·æ–°æ æ–‡æœ¬å†…å®¹
 		LinearLayout headText  = new LinearLayout(context);
 		tipsTextview = new TextView(context);
 		lastUpdatedTextView = new TextView(context);
@@ -235,9 +235,9 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 		headerView.invalidate();
 		addHeaderView(headerView, null, false);
 		
-		//µ×²¿Ë¢ĞÂ
+		//åº•éƒ¨åˆ·æ–°
 		footerView  = new LinearLayout(context);  
-		//ÉèÖÃ²¼¾Ö Ë®Æ½·½Ïò  
+		//è®¾ç½®å¸ƒå±€ æ°´å¹³æ–¹å‘  
 		footerView.setOrientation(LinearLayout.HORIZONTAL);
 		footerView.setGravity(Gravity.CENTER); 
 		footerView.setBackgroundColor(Color.rgb(225, 225,225));
@@ -251,11 +251,11 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 		footerProgressBar.setVisibility(View.GONE);
 		footerView.addView(footerProgressBar,layoutParamsWW);
 		footerView.addView(footerTextview,layoutParamsWW);
-		footerTextview.setText("¸ü¶à..."); 
+		footerTextview.setText("æ›´å¤š..."); 
 		footerView.setVisibility(View.GONE);
 		addFooterView(footerView, null, false);
 		
-		//ÎŞÊı¾İÊ±µÄView
+		//æ— æ•°æ®æ—¶çš„View
 		nodataView = new LinearLayout(context);
 		nodataView.setOrientation(LinearLayout.HORIZONTAL);
 		nodataView.setBackgroundColor(Color.rgb(225, 225,225));
@@ -278,10 +278,10 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 		
 		netGet = AbHttpQueue.getInstance();
 		
-		//ÏÂÀ­Ë¢ĞÂ,ÔÚÕâ¸öÀïÃæ¸üĞÂÊı¾İ
+		//ä¸‹æ‹‰åˆ·æ–°,åœ¨è¿™ä¸ªé‡Œé¢æ›´æ–°æ•°æ®
 		setonRefreshListener(new OnRefreshListener() {
 			public void onRefresh() {
-				//ÏÂÔØÊı¾İ
+				//ä¸‹è½½æ•°æ®
 				netGet.downloadBeforeClean(itemRefresh);
 				
 				//mAdapter.notifyDataSetChanged();
@@ -291,7 +291,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	}
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param arg0 the arg0
 	 * @param firstVisiableItem the first visiable item
@@ -299,7 +299,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	 * @param totalItemCount the total item count
 	 * @see android.widget.AbsListView.OnScrollListener#onScroll(android.widget.AbsListView, int, int, int)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	public void onScroll(AbsListView arg0, int firstVisiableItem, int visibleItemCount,int totalItemCount) {
@@ -309,31 +309,31 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	}
 	
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param view the view
 	 * @param scrollState the scroll state
 	 * @see android.widget.AbsListView.OnScrollListener#onScrollStateChanged(android.widget.AbsListView, int)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
 		//Log.v(TAG, "MyListView-->onScrollStateChanged" );
 		switch (scrollState) {
-		    // µ±²»¹ö¶¯Ê±
+		    // å½“ä¸æ»šåŠ¨æ—¶
 		    case OnScrollListener.SCROLL_STATE_IDLE:
 		    	Log.i(TAG, "SCROLL_STATE_IDLE");
 		    	if(view.getFirstVisiblePosition() == 0){
-		    		Log.i(TAG, "ÅĞ¶Ï¹ö¶¯µ½¶¥²¿");
+		    		Log.i(TAG, "åˆ¤æ–­æ»šåŠ¨åˆ°é¡¶éƒ¨");
 		    		
 		    	}else if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
-		    		Log.i(TAG, "ÅĞ¶Ï¹ö¶¯µ½µ×²¿");
-					//½øĞĞË¢ĞÂµÄÕ¹Ê¾,ÈÃprogressÏÔÊ¾³öÀ´
+		    		Log.i(TAG, "åˆ¤æ–­æ»šåŠ¨åˆ°åº•éƒ¨");
+					//è¿›è¡Œåˆ·æ–°çš„å±•ç¤º,è®©progressæ˜¾ç¤ºå‡ºæ¥
 			    	footerProgressBar.setVisibility(View.VISIBLE);
 			    	footerView.setVisibility(View.VISIBLE);
-			    	footerTextview.setText(" ¼ÓÔØÖĞ..."); 
-					//ÔÚÕâÀï»ñÈ¡Êı¾İ
+			    	footerTextview.setText(" åŠ è½½ä¸­..."); 
+					//åœ¨è¿™é‡Œè·å–æ•°æ®
 			    	netGet.downloadBeforeClean(itemScroll);
 		    	}
 		        break;
@@ -347,13 +347,13 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	}
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param event the event
 	 * @return true, if successful
 	 * @see android.widget.ListView#onTouchEvent(android.view.MotionEvent)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	public boolean onTouchEvent(MotionEvent event) {
@@ -363,7 +363,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 				if (firstItemIndex == 0 && !isRecored) {
 					isRecored = true;
 					startY = (int) event.getY();
-					//Log.v(TAG, "ACTION_DOWN ÕâÊÇµÚ  "+i+++"²½" +1 );
+					//Log.v(TAG, "ACTION_DOWN è¿™æ˜¯ç¬¬  "+i+++"æ­¥" +1 );
 				}
 				break;
 			case MotionEvent.ACTION_UP:
@@ -372,16 +372,16 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 					}
 					if (state == PULL_To_REFRESH) {
 						state = DONE;
-						//Log.v(TAG, "ACTION_UP PULL_To_REFRESH and changeHeaderViewByState()" +" ÕâÊÇµÚ  "+i+++"²½Ç°"+2 );
+						//Log.v(TAG, "ACTION_UP PULL_To_REFRESH and changeHeaderViewByState()" +" è¿™æ˜¯ç¬¬  "+i+++"æ­¥å‰"+2 );
 						changeHeaderViewByState();
-						//Log.v(TAG, "ACTION_UP PULL_To_REFRESH and changeHeaderViewByState() " +"ÕâÊÇµÚ  "+i+++"²½ºó"+2 );
+						//Log.v(TAG, "ACTION_UP PULL_To_REFRESH and changeHeaderViewByState() " +"è¿™æ˜¯ç¬¬  "+i+++"æ­¥å"+2 );
 					}
 					if (state == RELEASE_To_REFRESH) {
 						state = REFRESHING;
-						//Log.v(TAG, "ACTION_UP RELEASE_To_REFRESH changeHeaderViewByState() " +"ÕâÊÇµÚ  "+i+++"²½" +3);
+						//Log.v(TAG, "ACTION_UP RELEASE_To_REFRESH changeHeaderViewByState() " +"è¿™æ˜¯ç¬¬  "+i+++"æ­¥" +3);
 						changeHeaderViewByState();						
 						onRefresh();
-						//Log.v(TAG, "ACTION_UP RELEASE_To_REFRESH changeHeaderViewByState()" +" ÕâÊÇµÚ  "+i+++"²½" +3);
+						//Log.v(TAG, "ACTION_UP RELEASE_To_REFRESH changeHeaderViewByState()" +" è¿™æ˜¯ç¬¬  "+i+++"æ­¥" +3);
 					}
 				}
 				isRecored = false;
@@ -392,7 +392,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 				if (!isRecored && firstItemIndex == 0) {
 					isRecored = true;
 					startY = tempY;
-					//Log.v(TAG, "ACTION_MOVE ÕâÊÇµÚ  "+i+++"²½" +4);
+					//Log.v(TAG, "ACTION_MOVE è¿™æ˜¯ç¬¬  "+i+++"æ­¥" +4);
 				}
 				if (state != REFRESHING && isRecored && state != LOADING) {
 					if (state == RELEASE_To_REFRESH) {
@@ -400,11 +400,11 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 						if (((tempY - startY) / RATIO < headContentHeight)&& (tempY - startY) > 0) {
 							state = PULL_To_REFRESH;
 							changeHeaderViewByState();
-							//Log.v(TAG, "changeHeaderViewByState() ÕâÊÇµÚ  "+i+++"²½"+5 );
+							//Log.v(TAG, "changeHeaderViewByState() è¿™æ˜¯ç¬¬  "+i+++"æ­¥"+5 );
 						}else if (tempY - startY <= 0) {
 							state = DONE;
 							changeHeaderViewByState();
-							//Log.v(TAG, "ACTION_MOVE RELEASE_To_REFRESH 2  changeHeaderViewByState " +"ÕâÊÇµÚ  "+i+++"²½" +6);
+							//Log.v(TAG, "ACTION_MOVE RELEASE_To_REFRESH 2  changeHeaderViewByState " +"è¿™æ˜¯ç¬¬  "+i+++"æ­¥" +6);
 						}
 					}
 					if (state == PULL_To_REFRESH) {
@@ -412,30 +412,30 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 						if ((tempY - startY) / RATIO >= headContentHeight) {
 							state = RELEASE_To_REFRESH;
 							isBack = true;
-							//Log.v(TAG, "changeHeaderViewByState " +"ÕâÊÇµÚ  "+i+++"²½Ç°"+7 );
+							//Log.v(TAG, "changeHeaderViewByState " +"è¿™æ˜¯ç¬¬  "+i+++"æ­¥å‰"+7 );
 							changeHeaderViewByState();
-							//Log.v(TAG, "changeHeaderViewByState " +"ÕâÊÇµÚ  "+i+++"²½ºó"+7 );
+							//Log.v(TAG, "changeHeaderViewByState " +"è¿™æ˜¯ç¬¬  "+i+++"æ­¥å"+7 );
 						}else if (tempY - startY <= 0) {
 							state = DONE;
 							changeHeaderViewByState();
-							//Log.v(TAG, "ACTION_MOVE changeHeaderViewByState PULL_To_REFRESH 2" +" ÕâÊÇµÚ  "+i+++"²½" +8);
+							//Log.v(TAG, "ACTION_MOVE changeHeaderViewByState PULL_To_REFRESH 2" +" è¿™æ˜¯ç¬¬  "+i+++"æ­¥" +8);
 						}
 					}
 					if (state == DONE) {
 						if (tempY - startY > 0) {
 							state = PULL_To_REFRESH;
-							//Log.v(TAG, "ACTION_MOVE DONE changeHeaderViewByState " +"ÕâÊÇµÚ  "+i+++"²½Ç°" +9);
+							//Log.v(TAG, "ACTION_MOVE DONE changeHeaderViewByState " +"è¿™æ˜¯ç¬¬  "+i+++"æ­¥å‰" +9);
 							changeHeaderViewByState();
-							//Log.v(TAG, "ACTION_MOVE DONE changeHeaderViewByState " +"ÕâÊÇµÚ  "+i+++"²½ºó" +9);
+							//Log.v(TAG, "ACTION_MOVE DONE changeHeaderViewByState " +"è¿™æ˜¯ç¬¬  "+i+++"æ­¥å" +9);
 						}
 					}
 					if (state == PULL_To_REFRESH) {
 						headerView.setPadding(0, -1 * headContentHeight+(tempY - startY) / RATIO, 0, 0);
-						//Log.v(TAG, -1 * headContentHeight+(tempY - startY) / RATIO+"ACTION_MOVE PULL_To_REFRESH 3  ÕâÊÇµÚ  "+i+++"²½"+10 );
+						//Log.v(TAG, -1 * headContentHeight+(tempY - startY) / RATIO+"ACTION_MOVE PULL_To_REFRESH 3  è¿™æ˜¯ç¬¬  "+i+++"æ­¥"+10 );
 					}
 					if (state == RELEASE_To_REFRESH) {
 						headerView.setPadding(0, (tempY - startY) / RATIO- headContentHeight, 0, 0);
-						//Log.v(TAG, "ACTION_MOVE PULL_To_REFRESH 4 ÕâÊÇµÚ  "+i+++"²½" +11);
+						//Log.v(TAG, "ACTION_MOVE PULL_To_REFRESH 4 è¿™æ˜¯ç¬¬  "+i+++"æ­¥" +11);
 					}
 				}
 				break;
@@ -456,8 +456,8 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 			lastUpdatedTextView.setVisibility(View.VISIBLE);
 			arrowImageView.clearAnimation();
 			arrowImageView.startAnimation(animation);
-			tipsTextview.setText("ËÉ¿ªË¢ĞÂ");
-			//Log.v(TAG, "RELEASE_To_REFRESH ÕâÊÇµÚ  "+i+++"²½"+12 +"ÇëÊÍ·Å Ë¢ĞÂ" );
+			tipsTextview.setText("æ¾å¼€åˆ·æ–°");
+			//Log.v(TAG, "RELEASE_To_REFRESH è¿™æ˜¯ç¬¬  "+i+++"æ­¥"+12 +"è¯·é‡Šæ”¾ åˆ·æ–°" );
 			break;
 		case PULL_To_REFRESH:
 			headerProgressBar.setVisibility(View.GONE);
@@ -469,29 +469,29 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 				isBack = false;
 				arrowImageView.clearAnimation();
 				arrowImageView.startAnimation(reverseAnimation);
-				//tipsTextview.setText("isBack  is true £¡£¡£¡");
+				//tipsTextview.setText("isBack  is true ï¼ï¼ï¼");
 			} else {
-				//tipsTextview.setText("isBack  is false £¡£¡£¡");
+				//tipsTextview.setText("isBack  is false ï¼ï¼ï¼");
 			}
-			//Log.v(TAG, "PULL_To_REFRESH ÕâÊÇµÚ  "+i+++"²½" +13+"  changeHeaderViewByState()");
+			//Log.v(TAG, "PULL_To_REFRESH è¿™æ˜¯ç¬¬  "+i+++"æ­¥" +13+"  changeHeaderViewByState()");
 			break;
 		case REFRESHING:
 			headerView.setPadding(0, 0, 0, 0);
 			headerProgressBar.setVisibility(View.VISIBLE);
 			arrowImageView.clearAnimation();
 			arrowImageView.setVisibility(View.GONE);
-			tipsTextview.setText("ÕıÔÚË¢ĞÂ");
+			tipsTextview.setText("æ­£åœ¨åˆ·æ–°");
 			lastUpdatedTextView.setVisibility(View.VISIBLE);
-			//Log.v(TAG, "REFRESHING ÕâÊÇµÚ  "+i+++"²½" +"ÕıÔÚ¼ÓÔØÖĞ ...REFRESHING");
+			//Log.v(TAG, "REFRESHING è¿™æ˜¯ç¬¬  "+i+++"æ­¥" +"æ­£åœ¨åŠ è½½ä¸­ ...REFRESHING");
 			break;
 		case DONE:
 			headerView.setPadding(0, -1 * headContentHeight, 0, 0);
 			headerProgressBar.setVisibility(View.GONE);
 			arrowImageView.clearAnimation();
 			arrowImageView.setImageBitmap(arrowImage);
-			tipsTextview.setText("Ë¢ĞÂÍê³É");
+			tipsTextview.setText("åˆ·æ–°å®Œæˆ");
 			lastUpdatedTextView.setVisibility(View.VISIBLE);
-			//Log.v(TAG, "DONE ÕâÊÇµÚ  "+i+++"²½" +"ÒÑ¾­¼ÓÔØÍê±Ï- DONE ");
+			//Log.v(TAG, "DONE è¿™æ˜¯ç¬¬  "+i+++"æ­¥" +"å·²ç»åŠ è½½å®Œæ¯•- DONE ");
 			break;
 		}
 	}
@@ -526,15 +526,15 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	}
 
 	/**
-	 * ÃèÊö£ºÏÂÀ­Êı¾İÍê³É±ØĞë±»ListViewÖ÷¶¯µ÷ÓÃ£¬ÏÔÊ¾headerView.
+	 * æè¿°ï¼šä¸‹æ‹‰æ•°æ®å®Œæˆå¿…é¡»è¢«ListViewä¸»åŠ¨è°ƒç”¨ï¼Œæ˜¾ç¤ºheaderView.
 	 */
 	public void onRefreshComplete() {
 		mAdapter.notifyDataSetChanged();
 		state = DONE;
-		lastUpdatedTextView.setText("×îºóË¢ĞÂÊ±¼ä£º" + lastRefreshTime);
+		lastUpdatedTextView.setText("æœ€ååˆ·æ–°æ—¶é—´ï¼š" + lastRefreshTime);
 		lastRefreshTime = AbDateUtil.getCurrentDate(AbDateUtil.dateFormatHMS);
 		changeHeaderViewByState();
-		//Log.v(TAG, "onRefreshComplete() ±»µ÷ÓÃ");
+		//Log.v(TAG, "onRefreshComplete() è¢«è°ƒç”¨");
 		if(mAdapter.getCount()>0){
 			footerView.setVisibility(View.GONE);
 			footerProgressBar.setVisibility(View.GONE);
@@ -542,24 +542,24 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 		}else{
 			footerView.setVisibility(View.VISIBLE);
 			footerProgressBar.setVisibility(View.GONE);
-			footerTextview.setText("Ã»ÓĞÊı¾İ!");
+			footerTextview.setText("æ²¡æœ‰æ•°æ®!");
 		}
 	}
 	
 	/**
-	 * ÃèÊö£ºÃèÊö£ºÉÏÀ­Êı¾İÍê³É±ØĞë±»ListViewÖ÷¶¯µ÷ÓÃ£¬ÏÔÊ¾footerView.
+	 * æè¿°ï¼šæè¿°ï¼šä¸Šæ‹‰æ•°æ®å®Œæˆå¿…é¡»è¢«ListViewä¸»åŠ¨è°ƒç”¨ï¼Œæ˜¾ç¤ºfooterView.
 	 *
-	 * @param have ÊÇ·ñ»¹ÓĞĞÂÊı¾İ
+	 * @param have æ˜¯å¦è¿˜æœ‰æ–°æ•°æ®
 	 */
 	public void onScrollComplete(int have) {
 		if(have == AbConstant.HAVE){
 			mAdapter.notifyDataSetChanged();
 			footerProgressBar.setVisibility(View.VISIBLE);
 	    	footerView.setVisibility(View.GONE);
-	    	footerTextview.setText(" ¼ÓÔØÖĞ..."); 
+	    	footerTextview.setText(" åŠ è½½ä¸­..."); 
 		}else if(have == AbConstant.NOTHAVE){
 			footerProgressBar.setVisibility(View.GONE);
-			footerTextview.setText("È«²¿¼ÓÔØÍê³É");
+			footerTextview.setText("å…¨éƒ¨åŠ è½½å®Œæˆ");
 		}
 	}
 
@@ -569,7 +569,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	private void onRefresh() {
 		if (refreshListener != null) {
 			refreshListener.onRefresh();
-			//Log.v(TAG, "onRefresh±»µ÷ÓÃ£¬ÕâÊÇµÚ  "+i+++"²½" );
+			//Log.v(TAG, "onRefreshè¢«è°ƒç”¨ï¼Œè¿™æ˜¯ç¬¬  "+i+++"æ­¥" );
 		}
 	}
 
@@ -596,7 +596,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	}
 
 	/**
-	 * ÃèÊö£ºÉèÖÃÊı¾İÁĞ±íµÄÊÊÅäÆ÷.
+	 * æè¿°ï¼šè®¾ç½®æ•°æ®åˆ—è¡¨çš„é€‚é…å™¨.
 	 *
 	 * @param adapter the new adapter
 	 */
@@ -608,7 +608,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	}
 	
 	/**
-	 * ÃèÊö£ºÏÂÀ­Ë¢ĞÂÊÂ¼şÉèÖÃ.
+	 * æè¿°ï¼šä¸‹æ‹‰åˆ·æ–°äº‹ä»¶è®¾ç½®.
 	 *
 	 * @param item the new refresh item
 	 */
@@ -617,7 +617,7 @@ public class AbPullToRefreshListView extends ListView implements OnScrollListene
 	}
 	
 	/**
-	 * ÃèÊö£ºÉÏÀ­Ë¢ĞÂÊÂ¼şÉèÖÃ.
+	 * æè¿°ï¼šä¸Šæ‹‰åˆ·æ–°äº‹ä»¶è®¾ç½®.
 	 *
 	 * @param item the new scroll item
 	 */

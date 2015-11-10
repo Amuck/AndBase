@@ -78,37 +78,37 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
   /** The Y axis labels color. */
   private int[] mYLabelsColor = new int[] { TEXT_COLOR };
   
-  /** ÁÙ½çÏßÌõ. */
+  /** ä¸´ç•Œçº¿æ¡. */
   private double[] mYLimitsLine;
   
-  /** ÁÙ½çÏßÌõÑÕÉ«. */
+  /** ä¸´ç•Œçº¿æ¡é¢œè‰². */
   private int[] mYLimitsLineColor = new int[] { TEXT_COLOR };
   
-  /** ÊÇ·ñÏÔÊ¾±ê³ßÏß. */
+  /** æ˜¯å¦æ˜¾ç¤ºæ ‡å°ºçº¿. */
   private boolean mScaleLineEnabled = false;
   
-  /** ±ê³ßÌáÊ¾¿ò¸ß. */
+  /** æ ‡å°ºæç¤ºæ¡†é«˜. */
   private int mScaleRectHeight = 50;
   
-  /** ±ê³ßÌáÊ¾¿ò¿í. */
+  /** æ ‡å°ºæç¤ºæ¡†å®½. */
   private int mScaleRectWidth = 100;
   
-  /** ±ê³ßÑÕÉ«. */
+  /** æ ‡å°ºé¢œè‰². */
   private int mScaleLineColor = Color.argb(175, 150, 150, 150);
   
-  /** ±ê³ßÌáÊ¾¿ò±³¾°É«. */
+  /** æ ‡å°ºæç¤ºæ¡†èƒŒæ™¯è‰². */
   private int mScaleRectColor = Color.argb(150, 52, 182, 232);
   
-  /** ËµÃ÷ÎÄ×Ö1´óĞ¡. */
+  /** è¯´æ˜æ–‡å­—1å¤§å°. */
   private int explainTextSize1 = 14;
   
-  /** ËµÃ÷ÎÄ×Ö2´óĞ¡. */
+  /** è¯´æ˜æ–‡å­—2å¤§å°. */
   private int explainTextSize2 = 14;
   
-  /** ÍÏ¶¯ÊÖ±ú°ë¾¶. */
+  /** æ‹–åŠ¨æ‰‹æŸ„åŠå¾„. */
   private int scaleCircleRadius = 20;
   
-  /** ÏÔÊ¾0ÖµÂğ. */
+  /** æ˜¾ç¤º0å€¼å—. */
   private boolean displayValue0 = true;
   
   
@@ -778,7 +778,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
 
   /**
    * Sets the enabled state of the pan.
-   * ÉèÖÃÍ¼±íµÄÍÏ¶¯
+   * è®¾ç½®å›¾è¡¨çš„æ‹–åŠ¨
    * @param enabledX pan enabled on X axis
    * @param enabledY pan enabled on Y axis
    */
@@ -816,7 +816,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
 
   /**
    * Sets the enabled state of the zoom.
-   * Ëõ·Å´ò¿ªÄ¬ÈÏÍÏ¶¯Ò²´ò¿ª
+   * ç¼©æ”¾æ‰“å¼€é»˜è®¤æ‹–åŠ¨ä¹Ÿæ‰“å¼€
    * @param enabledX zoom enabled on X axis
    * @param enabledY zoom enabled on Y axis
    */
@@ -1191,7 +1191,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
   }
 
   /**
-   * ÃèÊö£ºÉèÖÃÁÙ½çÖµµÄÏßÌõ.
+   * æè¿°ï¼šè®¾ç½®ä¸´ç•Œå€¼çš„çº¿æ¡.
    *
    * @param mYLimitsLine the new m y limits line
    */
@@ -1209,7 +1209,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
   }
 
   /**
-   * ÃèÊö£ºÉèÖÃÁÙ½çÖµµÄÏßÌõµÄÑÕÉ«£¬ÑÕÉ«ÏàÍ¬µÄºÏ²¢Îª¾ØĞÎÌî³ä.
+   * æè¿°ï¼šè®¾ç½®ä¸´ç•Œå€¼çš„çº¿æ¡çš„é¢œè‰²ï¼Œé¢œè‰²ç›¸åŒçš„åˆå¹¶ä¸ºçŸ©å½¢å¡«å…….
    *
    * @param mYLimitsLineColor the new m y limits line color
    */
@@ -1218,7 +1218,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
   }
   
   /**
-   * ÃèÊö£ºÊÇ·ñÏÔÊ¾±ê³ßÏß.
+   * æè¿°ï¼šæ˜¯å¦æ˜¾ç¤ºæ ‡å°ºçº¿.
    *
    * @param enabled the new scale line enabled
    */
@@ -1227,7 +1227,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
    
    /**
-    * ÃèÊö£ºÊÇ·ñÏÔÊ¾±ê³ßÏß.
+    * æè¿°ï¼šæ˜¯å¦æ˜¾ç¤ºæ ‡å°ºçº¿.
     *
     * @return true, if is scale line enabled
     */
@@ -1236,7 +1236,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£º»ñÈ¡±ê³ßÌáÊ¾¿ò¸ß.
+    * æè¿°ï¼šè·å–æ ‡å°ºæç¤ºæ¡†é«˜.
     *
     * @return the scale rect height
     */
@@ -1245,7 +1245,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£ºÉèÖÃ±ê³ßÌáÊ¾¿ò¸ß.
+    * æè¿°ï¼šè®¾ç½®æ ‡å°ºæç¤ºæ¡†é«˜.
     *
     * @param mScaleRectHeight the new scale rect height
     */
@@ -1254,7 +1254,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£º»ñÈ¡±ê³ßÌáÊ¾¿ò¿í.
+    * æè¿°ï¼šè·å–æ ‡å°ºæç¤ºæ¡†å®½.
     *
     * @return the scale rect width
     */
@@ -1263,7 +1263,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£ºÉèÖÃ±ê³ßÌáÊ¾¿ò¿í.
+    * æè¿°ï¼šè®¾ç½®æ ‡å°ºæç¤ºæ¡†å®½.
     *
     * @param mScaleRectWidth the new scale rect width
     */
@@ -1272,7 +1272,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£º»ñÈ¡±ê³ßÌáÊ¾¿ò±³¾°É«.
+    * æè¿°ï¼šè·å–æ ‡å°ºæç¤ºæ¡†èƒŒæ™¯è‰².
     *
     * @return the scale rect color
     */
@@ -1281,7 +1281,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
    
    /**
-    * ÃèÊö£ºÉèÖÃ±ê³ßÌáÊ¾¿ò±³¾°É«.
+    * æè¿°ï¼šè®¾ç½®æ ‡å°ºæç¤ºæ¡†èƒŒæ™¯è‰².
     *
     * @param mScaleRectColor the new scale rect color
     */
@@ -1290,7 +1290,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£º»ñÈ¡±ê³ßÏßÉ«.
+    * æè¿°ï¼šè·å–æ ‡å°ºçº¿è‰².
     *
     * @return the scale line color
     */
@@ -1299,7 +1299,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£ºÉèÖÃ±ê³ßÏßÉ«.
+    * æè¿°ï¼šè®¾ç½®æ ‡å°ºçº¿è‰².
     *
     * @param mScaleLineColor the new scale line color
     */
@@ -1317,7 +1317,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£ºÉèÖÃµÚÒ»ĞĞÎÄ×ÖµÄÑÕÉ«.
+    * æè¿°ï¼šè®¾ç½®ç¬¬ä¸€è¡Œæ–‡å­—çš„é¢œè‰².
     *
     * @param explainTextSize1 the new explain text size1
     */
@@ -1335,7 +1335,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£ºÉèÖÃµÚ¶şĞĞÎÄ×ÖµÄÑÕÉ«.
+    * æè¿°ï¼šè®¾ç½®ç¬¬äºŒè¡Œæ–‡å­—çš„é¢œè‰².
     *
     * @param explainTextSize2 the new explain text size2
     */
@@ -1353,7 +1353,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£º±ê³ßÊÖ±ú°ë¾¶.
+    * æè¿°ï¼šæ ‡å°ºæ‰‹æŸ„åŠå¾„.
     *
     * @param scaleCircleRadius the new scale circle radius
     */
@@ -1371,7 +1371,7 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
    }
 
    /**
-    * ÃèÊö£ºÈç¹ûÖµÊÇ0ÊÇ·ñÒªÏÔÊ¾.
+    * æè¿°ï¼šå¦‚æœå€¼æ˜¯0æ˜¯å¦è¦æ˜¾ç¤º.
     *
     * @param displayValue0 the new display value0
     */

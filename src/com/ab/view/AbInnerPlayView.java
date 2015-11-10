@@ -27,8 +27,8 @@ import com.ab.util.AbFileUtil;
 
 // TODO: Auto-generated Javadoc
 /**
- * Ãû³Æ£ºAbInnerPlayView
- * ÃèÊö£º¿ÉÓëScrollView Ò»ÆğÊ¹ÓÃµÄ ÏÂÃæ´øµãµÄ»¬¶¯View,ÊÂ¼ş¸÷×Ô³Ğµ£
+ * åç§°ï¼šAbInnerPlayView
+ * æè¿°ï¼šå¯ä¸ScrollView ä¸€èµ·ä½¿ç”¨çš„ ä¸‹é¢å¸¦ç‚¹çš„æ»‘åŠ¨View,äº‹ä»¶å„è‡ªæ‰¿æ‹…
  * mAbInnerPlayView.getViewPager().setParentScrollView((ScrollView)findViewById(R.id.layout00));
    mAbInnerPlayView.getViewPager().setMaxHeight(360);
  * @author zhaoqp
@@ -110,7 +110,7 @@ public class AbInnerPlayView extends LinearLayout {
 		RelativeLayout mRelativeLayout = new RelativeLayout(context);
 		
 		mViewPager = new AbInnerViewPager(context);
-		//Î»ÖÃµÄµã
+		//ä½ç½®çš„ç‚¹
 		selectIndexLayout = new LinearLayout(context);
 		
 		
@@ -211,7 +211,7 @@ public class AbInnerPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£ºÌí¼Ó¿É²¥·ÅÊÓÍ¼.
+	 * æè¿°ï¼šæ·»åŠ å¯æ’­æ”¾è§†å›¾.
 	 *
 	 * @param view the view
 	 */
@@ -222,7 +222,7 @@ public class AbInnerPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉ¾³ı¿É²¥·ÅÊÓÍ¼.
+	 * æè¿°ï¼šåˆ é™¤å¯æ’­æ”¾è§†å›¾.
 	 *
 	 */
 	@Override
@@ -235,7 +235,7 @@ public class AbInnerPlayView extends LinearLayout {
 	
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃÒ³ÃæÇĞ»»ÊÂ¼ş.
+	 * æè¿°ï¼šè®¾ç½®é¡µé¢åˆ‡æ¢äº‹ä»¶.
 	 *
 	 * @param position the position
 	 */
@@ -247,7 +247,7 @@ public class AbInnerPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃÒ³ÃæÇĞ»»ÊÂ¼ş.
+	 * æè¿°ï¼šè®¾ç½®é¡µé¢åˆ‡æ¢äº‹ä»¶.
 	 *
 	 * @param position the position
 	 */
@@ -259,7 +259,7 @@ public class AbInnerPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£º×Ô¶¯ÂÖ²¥.
+	 * æè¿°ï¼šè‡ªåŠ¨è½®æ’­.
 	 */
 	public void startPlayView(){
 		Timer visTimer = new Timer();
@@ -284,7 +284,7 @@ public class AbInnerPlayView extends LinearLayout {
 	}
 	
 	/**
-	 * ÃèÊö£ºÉèÖÃÒ³ÃæÇĞ»»µÄ¼àÌıÆ÷.
+	 * æè¿°ï¼šè®¾ç½®é¡µé¢åˆ‡æ¢çš„ç›‘å¬å™¨.
 	 *
 	 * @param abChangeListener the new on page change listener
 	 */
@@ -293,7 +293,7 @@ public class AbInnerPlayView extends LinearLayout {
 	}
     
     /**
-     * ÃèÊö£ºÉèÖÃÒ³Ãæ»¬¶¯µÄ¼àÌıÆ÷.
+     * æè¿°ï¼šè®¾ç½®é¡µé¢æ»‘åŠ¨çš„ç›‘å¬å™¨.
      *
      * @param abScrolledListener the new on page scrolled listener
      */
@@ -316,7 +316,7 @@ public class AbInnerPlayView extends LinearLayout {
 	}
 
 	/**
-	 * ÃèÊö£º»ñÈ¡Õâ¸ö»¬¶¯µÄViewPagerÀà.
+	 * æè¿°ï¼šè·å–è¿™ä¸ªæ»‘åŠ¨çš„ViewPagerç±».
 	 *
 	 * @return the view pager
 	 */

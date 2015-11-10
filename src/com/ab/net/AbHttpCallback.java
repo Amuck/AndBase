@@ -5,7 +5,7 @@ package com.ab.net;
 
 // TODO: Auto-generated Javadoc
 /**
- * 描述：数据下载的接口.
+ * 鎻忚堪锛氭暟鎹笅杞界殑鎺ュ彛.
  *
  * @author zhaoqp
  * @date 2011-12-10
@@ -14,12 +14,12 @@ package com.ab.net;
 public interface AbHttpCallback {
 	
 	/**
-	 * 描述：下载开始后回调.
+	 * 鎻忚堪锛氫笅杞藉紑濮嬪悗鍥炶皟.
 	 */
 	public void get(); 
 	
 	/**
-	 * 描述：下载完成后回调.
+	 * 鎻忚堪锛氫笅杞藉畬鎴愬悗鍥炶皟.
 	 */
     public void update(); 
 

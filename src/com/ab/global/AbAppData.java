@@ -7,7 +7,7 @@ package com.ab.global;
  */
 public class AbAppData {
 	
-	/** ÈÕÖ¾¿ª¹Ø. */
+	/** æ—¥å¿—å¼€å…³. */
 	public static  boolean DEBUG = false;
 
 }

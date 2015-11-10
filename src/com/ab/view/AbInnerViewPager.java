@@ -41,13 +41,13 @@ public class AbInnerViewPager extends ViewPager {
 	}
 	
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param widthMeasureSpec the width measure spec
 	 * @param heightMeasureSpec the height measure spec
 	 * @see android.support.v4.view.ViewPager#onMeasure(int, int)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:49
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:49
 	 * @version v1.0
 	 */
 	@Override
@@ -63,13 +63,13 @@ public class AbInnerViewPager extends ViewPager {
 	
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param ev the ev
 	 * @return true, if successful
 	 * @see android.support.v4.view.ViewPager#onInterceptTouchEvent(android.view.MotionEvent)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:49
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:49
 	 * @version v1.0
 	 */
 	@Override

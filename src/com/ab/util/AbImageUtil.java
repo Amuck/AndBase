@@ -34,7 +34,7 @@ import com.ab.global.AbConstant;
 
 // TODO: Auto-generated Javadoc
 /**
- * ÃèÊö£ºÍ¼Æ¬´¦ÀíÀà.
+ * æè¿°ï¼šå›¾ç‰‡å¤„ç†ç±».
  *
  * @author zhaoqp
  * @date 2011-12-10
@@ -49,12 +49,12 @@ public class AbImageUtil {
 	private static final boolean D = AbAppData.DEBUG;
 	
 	/**
-	 * Ö±½Ó»ñÈ¡»¥ÁªÍøÉÏµÄÍ¼Æ¬.
-	 * @param imageUrl ÒªÏÂÔØÎÄ¼şµÄÍøÂçµØÖ·
-	 * @param type Í¼Æ¬µÄ´¦ÀíÀàĞÍ£¨¼ôÇĞ»òÕßËõ·Åµ½Ö¸¶¨´óĞ¡£¬²Î¿¼AbConstantÀà£©
-	 * @param newWidth ĞÂÍ¼Æ¬µÄ¿í
-	 * @param newHeight ĞÂÍ¼Æ¬µÄ¸ß
-	 * @return Bitmap ĞÂÍ¼Æ¬
+	 * ç›´æ¥è·å–äº’è”ç½‘ä¸Šçš„å›¾ç‰‡.
+	 * @param imageUrl è¦ä¸‹è½½æ–‡ä»¶çš„ç½‘ç»œåœ°å€
+	 * @param type å›¾ç‰‡çš„å¤„ç†ç±»å‹ï¼ˆå‰ªåˆ‡æˆ–è€…ç¼©æ”¾åˆ°æŒ‡å®šå¤§å°ï¼Œå‚è€ƒAbConstantç±»ï¼‰
+	 * @param newWidth æ–°å›¾ç‰‡çš„å®½
+	 * @param newHeight æ–°å›¾ç‰‡çš„é«˜
+	 * @return Bitmap æ–°å›¾ç‰‡
 	 */
 	public static Bitmap getBitmapFormURL(String imageUrl,int type,int newWidth,int newHeight){
 		Bitmap bm = null;
@@ -66,7 +66,7 @@ public class AbImageUtil {
 			con.setDoInput(true);
 			con.connect();
 			is = con.getInputStream();
-			//»ñÈ¡×ÊÔ´Í¼Æ¬
+			//è·å–èµ„æºå›¾ç‰‡
 			Bitmap wholeBm =  BitmapFactory.decodeStream(is,null,null); 
 			if(type==AbConstant.CUTIMG){
 				bm = AbImageUtil.cutImg(wholeBm,newWidth,newHeight);
@@ -88,32 +88,32 @@ public class AbImageUtil {
    }   
 	
    /**
-    * ÃèÊö£ºËõ·ÅÍ¼Æ¬.Ñ¹Ëõ
-	* @param file File¶ÔÏó
-	* @param newWidth ĞÂÍ¼Æ¬µÄ¿í
-	* @param newHeight ĞÂÍ¼Æ¬µÄ¸ß
-	* @return Bitmap ĞÂÍ¼Æ¬
+    * æè¿°ï¼šç¼©æ”¾å›¾ç‰‡.å‹ç¼©
+	* @param file Fileå¯¹è±¡
+	* @param newWidth æ–°å›¾ç‰‡çš„å®½
+	* @param newHeight æ–°å›¾ç‰‡çš„é«˜
+	* @return Bitmap æ–°å›¾ç‰‡
 	*/
 	public static Bitmap scaleImg(File file,int newWidth, int newHeight){ 
 		Bitmap resizeBmp = null;
 	    BitmapFactory.Options opts = new BitmapFactory.Options(); 
-	    //ÉèÖÃÎªtrue,decodeFileÏÈ²»´´½¨ÄÚ´æ Ö»»ñÈ¡Ò»Ğ©½âÂë±ß½çĞÅÏ¢¼´Í¼Æ¬´óĞ¡ĞÅÏ¢
+	    //è®¾ç½®ä¸ºtrue,decodeFileå…ˆä¸åˆ›å»ºå†…å­˜ åªè·å–ä¸€äº›è§£ç è¾¹ç•Œä¿¡æ¯å³å›¾ç‰‡å¤§å°ä¿¡æ¯
 	    opts.inJustDecodeBounds = true;	
 	    BitmapFactory.decodeFile(file.getPath(),opts);
 	    if(newWidth!=-1 && newHeight!=-1){
-		    //inSampleSize=2±íÊ¾Í¼Æ¬¿í¸ß¶¼ÎªÔ­À´µÄ¶ş·ÖÖ®Ò»£¬¼´Í¼Æ¬ÎªÔ­À´µÄËÄ·ÖÖ®Ò»
-		    //Ëõ·Å¿ÉÒÔ½«ÏñËØµã´ò±¡
-			int srcWidth = opts.outWidth;  // »ñÈ¡Í¼Æ¬µÄÔ­Ê¼¿í¶È
-			int srcHeight = opts.outHeight;// »ñÈ¡Í¼Æ¬Ô­Ê¼¸ß¶È
+		    //inSampleSize=2è¡¨ç¤ºå›¾ç‰‡å®½é«˜éƒ½ä¸ºåŸæ¥çš„äºŒåˆ†ä¹‹ä¸€ï¼Œå³å›¾ç‰‡ä¸ºåŸæ¥çš„å››åˆ†ä¹‹ä¸€
+		    //ç¼©æ”¾å¯ä»¥å°†åƒç´ ç‚¹æ‰“è–„
+			int srcWidth = opts.outWidth;  // è·å–å›¾ç‰‡çš„åŸå§‹å®½åº¦
+			int srcHeight = opts.outHeight;// è·å–å›¾ç‰‡åŸå§‹é«˜åº¦
 			int destWidth = 0;
 			int destHeight = 0;
-			// Ëõ·ÅµÄ±ÈÀı
+			// ç¼©æ”¾çš„æ¯”ä¾‹
 			double ratio = 0.0;
 			if (srcWidth < newWidth || srcHeight < newHeight) {
 				ratio = 0.0;
 				destWidth = srcWidth;
 				destHeight = srcHeight;
-			// °´±ÈÀı¼ÆËãËõ·ÅºóµÄÍ¼Æ¬´óĞ¡
+			// æŒ‰æ¯”ä¾‹è®¡ç®—ç¼©æ”¾åçš„å›¾ç‰‡å¤§å°
 			} else if (srcWidth > srcHeight) {
 				ratio = (double) srcWidth / newWidth;
 				destWidth = newWidth;
@@ -123,29 +123,29 @@ public class AbImageUtil {
 				destHeight = newHeight;
 				destWidth = (int) (srcWidth / ratio);
 			}
-			// Ëõ·ÅµÄ±ÈÀı£¬Ëõ·ÅÊÇºÜÄÑ°´×¼±¸µÄ±ÈÀı½øĞĞËõ·ÅµÄ£¬Ä¿Ç°ÎÒÖ»·¢ÏÖÖ»ÄÜÍ¨¹ıinSampleSizeÀ´½øĞĞËõ·Å£¬ÆäÖµ±íÃ÷Ëõ·ÅµÄ±¶Êı£¬SDKÖĞ½¨ÒéÆäÖµÊÇ2µÄÖ¸ÊıÖµ
+			// ç¼©æ”¾çš„æ¯”ä¾‹ï¼Œç¼©æ”¾æ˜¯å¾ˆéš¾æŒ‰å‡†å¤‡çš„æ¯”ä¾‹è¿›è¡Œç¼©æ”¾çš„ï¼Œç›®å‰æˆ‘åªå‘ç°åªèƒ½é€šè¿‡inSampleSizeæ¥è¿›è¡Œç¼©æ”¾ï¼Œå…¶å€¼è¡¨æ˜ç¼©æ”¾çš„å€æ•°ï¼ŒSDKä¸­å»ºè®®å…¶å€¼æ˜¯2çš„æŒ‡æ•°å€¼
 			opts.inSampleSize = (int) ratio + 1;
-		    // ÉèÖÃ´óĞ¡
+		    // è®¾ç½®å¤§å°
 			opts.outHeight = destHeight;
 			opts.outWidth = destWidth;
 	    }else{
 	    	opts.inSampleSize = 1;
 	    }
-	    //´´½¨ÄÚ´æ
+	    //åˆ›å»ºå†…å­˜
 		opts.inJustDecodeBounds = false;	
-	    //Ê¹Í¼Æ¬²»¶¶¶¯  
+	    //ä½¿å›¾ç‰‡ä¸æŠ–åŠ¨  
 		opts.inDither = false;   
 	    resizeBmp = BitmapFactory.decodeFile(file.getPath(),opts);
 	    return resizeBmp;
 	  }
 	  
 	/**
-	 * ÃèÊö£ºËõ·ÅÍ¼Æ¬,²»Ñ¹ËõµÄËõ·Å.
+	 * æè¿°ï¼šç¼©æ”¾å›¾ç‰‡,ä¸å‹ç¼©çš„ç¼©æ”¾.
 	 *
 	 * @param bitmap the bitmap
-	 * @param newWidth ĞÂÍ¼Æ¬µÄ¿í
-	 * @param newHeight ĞÂÍ¼Æ¬µÄ¸ß
-	 * @return Bitmap ĞÂÍ¼Æ¬
+	 * @param newWidth æ–°å›¾ç‰‡çš„å®½
+	 * @param newHeight æ–°å›¾ç‰‡çš„é«˜
+	 * @return Bitmap æ–°å›¾ç‰‡
 	 */
 	  public static Bitmap scaleImg(Bitmap bitmap, int newWidth, int newHeight) {
 	        if(bitmap == null){
@@ -154,40 +154,40 @@ public class AbImageUtil {
 	        if(newHeight<=0 || newWidth<=0){
 	        	return bitmap;
 	        }
-		    // »ñµÃÍ¼Æ¬µÄ¿í¸ß
+		    // è·å¾—å›¾ç‰‡çš„å®½é«˜
 	        int width = bitmap.getWidth();
 	        int height = bitmap.getHeight();
 	        
 	        if(width <= 0 || height <= 0){
 		 		  return null;
 		 	 }
-	        // ¼ÆËãËõ·Å±ÈÀı
+	        // è®¡ç®—ç¼©æ”¾æ¯”ä¾‹
 	        float scaleWidth = ((float) newWidth) / width;
 	        float scaleHeight = ((float) newHeight) / height;
-	        // È¡µÃÏëÒªËõ·ÅµÄmatrix²ÎÊı
+	        // å–å¾—æƒ³è¦ç¼©æ”¾çš„matrixå‚æ•°
 	        Matrix matrix = new Matrix();
 	        matrix.postScale(scaleWidth, scaleHeight);
-	        //µÃµ½ĞÂµÄÍ¼Æ¬
+	        //å¾—åˆ°æ–°çš„å›¾ç‰‡
 	        Bitmap newBm = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix,true);
 	        return newBm;
 	  }
 	  
    /**
-    * ÃèÊö£ºËõ·ÅÍ¼Æ¬.
+    * æè¿°ï¼šç¼©æ”¾å›¾ç‰‡.
     *
     * @param bitmap the bitmap
-    * @param scale ±ÈÀı
-    * @return Bitmap ĞÂÍ¼Æ¬
+    * @param scale æ¯”ä¾‹
+    * @return Bitmap æ–°å›¾ç‰‡
     */
 	  public static Bitmap scaleImg(Bitmap bitmap,int scale){
 			Bitmap resizeBmp = null;
 			try {
-				//»ñÈ¡Bitmap×ÊÔ´µÄ¿íºÍ¸ß
+				//è·å–Bitmapèµ„æºçš„å®½å’Œé«˜
 				int bmpW = bitmap.getWidth();
 				int bmpH = bitmap.getHeight();
-				//×¢ÒâÕâ¸öMatirxÊÇandroid.graphicsµ×ÏÂµÄÄÇ¸ö
+				//æ³¨æ„è¿™ä¸ªMatirxæ˜¯android.graphicsåº•ä¸‹çš„é‚£ä¸ª
 				Matrix mt = new Matrix();
-				//ÉèÖÃËõ·ÅÏµÊı£¬·Ö±ğÎªÔ­À´µÄ0.8ºÍ0.8
+				//è®¾ç½®ç¼©æ”¾ç³»æ•°ï¼Œåˆ†åˆ«ä¸ºåŸæ¥çš„0.8å’Œ0.8
 				mt.postScale(scale, scale);
 				resizeBmp = Bitmap.createBitmap(bitmap, 0, 0, bmpW, bmpH, mt, true);
 			} catch (Exception e) {
@@ -197,35 +197,35 @@ public class AbImageUtil {
 	  }
 	  
 	  /**
-	   * ÃèÊö£º²Ã¼ôÍ¼Æ¬.
-	   * @param file  File¶ÔÏó
-	   * @param newWidth ĞÂÍ¼Æ¬µÄ¿í
-	   * @param newHeight ĞÂÍ¼Æ¬µÄ¸ß
-	   * @return Bitmap ĞÂÍ¼Æ¬
+	   * æè¿°ï¼šè£å‰ªå›¾ç‰‡.
+	   * @param file  Fileå¯¹è±¡
+	   * @param newWidth æ–°å›¾ç‰‡çš„å®½
+	   * @param newHeight æ–°å›¾ç‰‡çš„é«˜
+	   * @return Bitmap æ–°å›¾ç‰‡
 	   */
 	   public static Bitmap cutImg(File file,int newWidth, int newHeight){ 
 		    Bitmap newBitmap = null;
 		    BitmapFactory.Options opts = new BitmapFactory.Options(); 
-		    //ÉèÖÃÎªtrue,decodeFileÏÈ²»´´½¨ÄÚ´æ Ö»»ñÈ¡Ò»Ğ©½âÂë±ß½çĞÅÏ¢¼´Í¼Æ¬´óĞ¡ĞÅÏ¢
+		    //è®¾ç½®ä¸ºtrue,decodeFileå…ˆä¸åˆ›å»ºå†…å­˜ åªè·å–ä¸€äº›è§£ç è¾¹ç•Œä¿¡æ¯å³å›¾ç‰‡å¤§å°ä¿¡æ¯
 		    opts.inJustDecodeBounds = true;	
 		    BitmapFactory.decodeFile(file.getPath(),opts);
 		    if(newWidth!=-1 && newHeight!=-1){
-			    //inSampleSize=2±íÊ¾Í¼Æ¬¿í¸ß¶¼ÎªÔ­À´µÄ¶ş·ÖÖ®Ò»£¬¼´Í¼Æ¬ÎªÔ­À´µÄËÄ·ÖÖ®Ò»
-			    //Ëõ·Å¿ÉÒÔ½«ÏñËØµã´ò±¡,²Ã¼ôÇ°½«Í¼Æ¬Ëõ·ÅÒ»Ğ©
-				int srcWidth = opts.outWidth;  // »ñÈ¡Í¼Æ¬µÄÔ­Ê¼¿í¶È
-				int srcHeight = opts.outHeight;// »ñÈ¡Í¼Æ¬Ô­Ê¼¸ß¶È
+			    //inSampleSize=2è¡¨ç¤ºå›¾ç‰‡å®½é«˜éƒ½ä¸ºåŸæ¥çš„äºŒåˆ†ä¹‹ä¸€ï¼Œå³å›¾ç‰‡ä¸ºåŸæ¥çš„å››åˆ†ä¹‹ä¸€
+			    //ç¼©æ”¾å¯ä»¥å°†åƒç´ ç‚¹æ‰“è–„,è£å‰ªå‰å°†å›¾ç‰‡ç¼©æ”¾ä¸€äº›
+				int srcWidth = opts.outWidth;  // è·å–å›¾ç‰‡çš„åŸå§‹å®½åº¦
+				int srcHeight = opts.outHeight;// è·å–å›¾ç‰‡åŸå§‹é«˜åº¦
 				int destWidth = 0;
 				int destHeight = 0;
 				int cutSrcWidth = newWidth*2;
 				int cutSrcHeight = newHeight*2;
 				
-				// Ëõ·ÅµÄ±ÈÀı
+				// ç¼©æ”¾çš„æ¯”ä¾‹
 				double ratio = 0.0;
 				if (srcWidth < cutSrcWidth || srcHeight < cutSrcHeight) {
 					ratio = 0.0;
 					destWidth = srcWidth;
 					destHeight = srcHeight;
-				// °´±ÈÀı¼ÆËãËõ·ÅºóµÄÍ¼Æ¬´óĞ¡
+				// æŒ‰æ¯”ä¾‹è®¡ç®—ç¼©æ”¾åçš„å›¾ç‰‡å¤§å°
 				} else if (srcWidth > srcHeight) {
 					ratio = (double) srcWidth / cutSrcWidth;
 					destWidth = cutSrcWidth;
@@ -235,17 +235,17 @@ public class AbImageUtil {
 					destHeight = cutSrcHeight;
 					destWidth = (int) (srcWidth / ratio);
 				}
-				// Ëõ·ÅµÄ±ÈÀı£¬Ëõ·ÅÊÇºÜÄÑ°´×¼±¸µÄ±ÈÀı½øĞĞËõ·ÅµÄ£¬Ä¿Ç°ÎÒÖ»·¢ÏÖÖ»ÄÜÍ¨¹ıinSampleSizeÀ´½øĞĞËõ·Å£¬ÆäÖµ±íÃ÷Ëõ·ÅµÄ±¶Êı£¬SDKÖĞ½¨ÒéÆäÖµÊÇ2µÄÖ¸ÊıÖµ
+				// ç¼©æ”¾çš„æ¯”ä¾‹ï¼Œç¼©æ”¾æ˜¯å¾ˆéš¾æŒ‰å‡†å¤‡çš„æ¯”ä¾‹è¿›è¡Œç¼©æ”¾çš„ï¼Œç›®å‰æˆ‘åªå‘ç°åªèƒ½é€šè¿‡inSampleSizeæ¥è¿›è¡Œç¼©æ”¾ï¼Œå…¶å€¼è¡¨æ˜ç¼©æ”¾çš„å€æ•°ï¼ŒSDKä¸­å»ºè®®å…¶å€¼æ˜¯2çš„æŒ‡æ•°å€¼
 				opts.inSampleSize = (int) ratio + 1;
-			    // ÉèÖÃ´óĞ¡
+			    // è®¾ç½®å¤§å°
 				opts.outHeight = destHeight;
 				opts.outWidth = destWidth;
 		    }else{
 		    	opts.inSampleSize = 1;
 		    }
-		    //´´½¨ÄÚ´æ
+		    //åˆ›å»ºå†…å­˜
 		    opts.inJustDecodeBounds = false;	
-		    //Ê¹Í¼Æ¬²»¶¶¶¯  
+		    //ä½¿å›¾ç‰‡ä¸æŠ–åŠ¨  
 		    opts.inDither = false;   		
 		    Bitmap resizeBmp = BitmapFactory.decodeFile(file.getPath(),opts);
 		    if(resizeBmp!=null){
@@ -259,12 +259,12 @@ public class AbImageUtil {
 	  }
 	  
 	  /**
-  	 * ÃèÊö£º²Ã¼ôÍ¼Æ¬.
+  	 * æè¿°ï¼šè£å‰ªå›¾ç‰‡.
   	 *
   	 * @param bitmap the bitmap
-  	 * @param newWidth ĞÂÍ¼Æ¬µÄ¿í
-  	 * @param newHeight ĞÂÍ¼Æ¬µÄ¸ß
-  	 * @return Bitmap ĞÂÍ¼Æ¬
+  	 * @param newWidth æ–°å›¾ç‰‡çš„å®½
+  	 * @param newHeight æ–°å›¾ç‰‡çš„é«˜
+  	 * @return Bitmap æ–°å›¾ç‰‡
   	 */
 	  public static Bitmap cutImg(Bitmap bitmap, int newWidth, int newHeight) {
 		  if(bitmap == null){
@@ -295,8 +295,8 @@ public class AbImageUtil {
 	  }
 	  
 	  /**
-	   * Drawable×ªBitmap.
-	   * @param drawable Òª×ª»¯µÄDrawable
+	   * Drawableè½¬Bitmap.
+	   * @param drawable è¦è½¬åŒ–çš„Drawable
 	   * @return Bitmap
 	   */
 	  public static Bitmap drawableToBitmap(Drawable drawable) {
@@ -312,9 +312,9 @@ public class AbImageUtil {
 	}
 	  
 	 /**
-	  * Drawable¶ÔÏó×ª»»Bitmap¶ÔÏó.
-	  * @param bitmap Òª×ª»¯µÄBitmap¶ÔÏó
-	  * @return Drawable ×ª»¯Íê³ÉµÄDrawable¶ÔÏó
+	  * Drawableå¯¹è±¡è½¬æ¢Bitmapå¯¹è±¡.
+	  * @param bitmap è¦è½¬åŒ–çš„Bitmapå¯¹è±¡
+	  * @return Drawable è½¬åŒ–å®Œæˆçš„Drawableå¯¹è±¡
 	  */
 	  public static Drawable bitmapToDrawable(Bitmap bitmap) {
 		  BitmapDrawable mBitmapDrawable = null;
@@ -330,12 +330,12 @@ public class AbImageUtil {
 	}
   
    /**
-    * ½«Bitmap×ª»»Îªbyte[].
+    * å°†Bitmapè½¬æ¢ä¸ºbyte[].
     *
     * @param bitmap the bitmap
-    * @param mCompressFormat Í¼Æ¬¸ñÊ½ Bitmap.CompressFormat.JPEG,CompressFormat.PNG
-    * @param needRecycle ÊÇ·ñĞèÒª»ØÊÕ
-    * @return byte[] Í¼Æ¬µÄbyte[]
+    * @param mCompressFormat å›¾ç‰‡æ ¼å¼ Bitmap.CompressFormat.JPEG,CompressFormat.PNG
+    * @param needRecycle æ˜¯å¦éœ€è¦å›æ”¶
+    * @return byte[] å›¾ç‰‡çš„byte[]
     */
 	public static byte[] bitmap2Bytes(Bitmap bitmap,Bitmap.CompressFormat mCompressFormat,final boolean needRecycle){  
 		byte[] result = null;
@@ -362,9 +362,9 @@ public class AbImageUtil {
 	 }  
 	
 	/**
-	 * ÃèÊö£º½«byte[]×ª»»ÎªBitmap.
-	 * @param b Í¼Æ¬¸ñÊ½µÄbyte[]Êı×é
-	 * @return bitmap µÃµ½µÄBitmap
+	 * æè¿°ï¼šå°†byte[]è½¬æ¢ä¸ºBitmap.
+	 * @param b å›¾ç‰‡æ ¼å¼çš„byte[]æ•°ç»„
+	 * @return bitmap å¾—åˆ°çš„Bitmap
 	 */
 	public static  Bitmap bytes2Bimap(byte[] b){  
 		Bitmap bitmap = null;
@@ -379,9 +379,9 @@ public class AbImageUtil {
   }  
 	
 	/**
-	 * ½«ImageView×ª»»ÎªBitmap.
-	 * @param view Òª×ª»»ÎªbitmapµÄView
-	 * @return byte[] Í¼Æ¬µÄbyte[]
+	 * å°†ImageViewè½¬æ¢ä¸ºBitmap.
+	 * @param view è¦è½¬æ¢ä¸ºbitmapçš„View
+	 * @return byte[] å›¾ç‰‡çš„byte[]
 	 */
 	public static Bitmap imageView2Bitmap(ImageView view){  
 		Bitmap bitmap = null;
@@ -396,8 +396,8 @@ public class AbImageUtil {
 	
 	
 	/**
-	 * ½«View×ª»»ÎªDrawable.ĞèÒª×îÉÏ²ã²¼¾ÖÎªLinearlayout
-	 * @param view Òª×ª»»ÎªDrawableµÄView
+	 * å°†Viewè½¬æ¢ä¸ºDrawable.éœ€è¦æœ€ä¸Šå±‚å¸ƒå±€ä¸ºLinearlayout
+	 * @param view è¦è½¬æ¢ä¸ºDrawableçš„View
 	 * @return BitmapDrawable Drawable
 	 */
 	public static Drawable view2Drawable(View view){  
@@ -414,9 +414,9 @@ public class AbImageUtil {
 	 }  
 	
 	/**
-	 * ½«View×ª»»ÎªBitmap.ĞèÒª×îÉÏ²ã²¼¾ÖÎªLinearlayout
-	 * @param view Òª×ª»»ÎªbitmapµÄView
-	 * @return byte[] Í¼Æ¬µÄbyte[]
+	 * å°†Viewè½¬æ¢ä¸ºBitmap.éœ€è¦æœ€ä¸Šå±‚å¸ƒå±€ä¸ºLinearlayout
+	 * @param view è¦è½¬æ¢ä¸ºbitmapçš„View
+	 * @return byte[] å›¾ç‰‡çš„byte[]
 	 */
 	public static Bitmap view2Bitmap(View view){  
 		Bitmap bitmap = null;
@@ -437,11 +437,11 @@ public class AbImageUtil {
 	 }  
 	
 	/**
-	 * ½«View×ª»»Îªbyte[].
+	 * å°†Viewè½¬æ¢ä¸ºbyte[].
 	 *
-	 * @param view Òª×ª»»Îªbyte[]µÄView
+	 * @param view è¦è½¬æ¢ä¸ºbyte[]çš„View
 	 * @param compressFormat the compress format
-	 * @return byte[] ViewÍ¼Æ¬µÄbyte[]
+	 * @return byte[] Viewå›¾ç‰‡çš„byte[]
 	 */
 	public static byte[] view2Bytes(View view,Bitmap.CompressFormat compressFormat){  
 		byte[] b = null;
@@ -455,7 +455,7 @@ public class AbImageUtil {
 	 } 
 	
 	/**
-	 * ÃèÊö£ºĞı×ªBitmapÎªÒ»¶¨µÄ½Ç¶È.
+	 * æè¿°ï¼šæ—‹è½¬Bitmapä¸ºä¸€å®šçš„è§’åº¦.
 	 *
 	 * @param bitmap the bitmap
 	 * @param degrees the degrees
@@ -474,7 +474,7 @@ public class AbImageUtil {
    } 
 	
 	/**
-	 * ÃèÊö£ºĞı×ªBitmapÎªÒ»¶¨µÄ½Ç¶È²¢ËÄÖÜ°µ»¯´¦Àí.
+	 * æè¿°ï¼šæ—‹è½¬Bitmapä¸ºä¸€å®šçš„è§’åº¦å¹¶å››å‘¨æš—åŒ–å¤„ç†.
 	 *
 	 * @param bitmap the bitmap
 	 * @param degrees the degrees
@@ -505,9 +505,9 @@ public class AbImageUtil {
    } 
 	
 	/**
-	 * ×ª»»Í¼Æ¬×ª»»³ÉÔ²ĞÎ.
+	 * è½¬æ¢å›¾ç‰‡è½¬æ¢æˆåœ†å½¢.
 	 *
-	 * @param bitmap ´«ÈëBitmap¶ÔÏó
+	 * @param bitmap ä¼ å…¥Bitmapå¯¹è±¡
 	 * @return the bitmap
 	 */
 	public static Bitmap toRoundBitmap(Bitmap bitmap) {
@@ -560,14 +560,14 @@ public class AbImageUtil {
 	}
 	  
    /**
-	* ÊÍ·ÅBitmap¶ÔÏó.
-	* @param bitmap ÒªÊÍ·ÅµÄBitmap
+	* é‡Šæ”¾Bitmapå¯¹è±¡.
+	* @param bitmap è¦é‡Šæ”¾çš„Bitmap
 	*/
 	public static void releaseBitmap(Bitmap bitmap){
 		if(bitmap!=null){
 			try {
 				if(!bitmap.isRecycled()){
-					if(D) Log.d(TAG, "BitmapÊÍ·Å"+bitmap.toString());
+					if(D) Log.d(TAG, "Bitmapé‡Šæ”¾"+bitmap.toString());
 					bitmap.recycle();
 				}
 			} catch (Exception e) {
@@ -577,15 +577,15 @@ public class AbImageUtil {
 	}
 	
 	/**
-	* ÊÍ·ÅBitmapÊı×é.
-	* @param bitmaps ÒªÊÍ·ÅµÄBitmapÊı×é
+	* é‡Šæ”¾Bitmapæ•°ç»„.
+	* @param bitmaps è¦é‡Šæ”¾çš„Bitmapæ•°ç»„
 	*/
 	public static void releaseBitmapArray(Bitmap[] bitmaps){
 		if(bitmaps!=null){
 			try {
 				for(Bitmap bitmap:bitmaps){
 					if(bitmap!=null && !bitmap.isRecycled()){
-						if(D) Log.d(TAG, "BitmapÊÍ·Å"+bitmap.toString());
+						if(D) Log.d(TAG, "Bitmapé‡Šæ”¾"+bitmap.toString());
 						bitmap.recycle();
 					}
 				}

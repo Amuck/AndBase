@@ -51,7 +51,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	
 	/** The is aimation moving. */
 	private boolean isAimationMoving = false;
-	//0¹Ø  1¿ª  2¹ØÖĞ  3¿ªÖĞ  
+	//0å…³  1å¼€  2å…³ä¸­  3å¼€ä¸­  
 	/** The state. */
 	private int state = 0;
 	
@@ -63,19 +63,19 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	
 	/** The btn height. */
 	int btnHeight = 40;
-	//ÒÆ¶¯µÄ¾àÀë
+	//ç§»åŠ¨çš„è·ç¦»
 	/** The move width. */
 	int moveWidth = 45;
-	//Ã¿´ÎÒÆ¶¯µÄ¾àÀë
+	//æ¯æ¬¡ç§»åŠ¨çš„è·ç¦»
 	/** The move p dis. */
 	int movePDis = 5;
-	//¸²¸Ç°´Å¥µÄ¿í
+	//è¦†ç›–æŒ‰é’®çš„å®½
 	/** The Width offset. */
 	int WidthOffset = 5;
 	
 	/** The detector. */
 	private GestureDetector detector;
-	//¸Ä±äÊÂ¼ş
+	//æ”¹å˜äº‹ä»¶
 	/** The m switcher change listener. */
 	private AbOnChangeListener mSwitcherChangeListener;
 	
@@ -83,7 +83,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	Handler mHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
-			//¹Ø
+			//å…³
 			if (msg.what == 0) {
 				state = 2;
 				int left = btnRight.getLeft();
@@ -97,7 +97,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 				     currentBtn.layout(left-movePDis, 0, right-movePDis, btnHeight);
 				}
 			}
-			// ¿ª
+			// å¼€
 			else if (msg.what == 1) {
 				state = 3;
 				int left = btnLeft.getLeft();
@@ -110,7 +110,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 				}else{
 				    currentBtn.layout(left+movePDis, 0,right+movePDis, btnHeight);
 			    }
-			//¹Ø
+			//å…³
 			}else if (msg.what == 3) {
 				currentBtn = btnLeft;
 				btnRight.setVisibility(View.GONE);
@@ -119,7 +119,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 				isAimationMoving = false;
 				state = 0;
 			}
-			// ¿ª
+			// å¼€
 			else if (msg.what == 4) {
 				currentBtn = btnRight;
 				btnLeft.setVisibility(View.GONE);
@@ -155,11 +155,11 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 		
 		btnWidth = 40;
 		btnHeight = 40;
-		//ÒÆ¶¯µÄ¾àÀë
+		//ç§»åŠ¨çš„è·ç¦»
 		moveWidth = 45;
-		//Ã¿´ÎÒÆ¶¯µÄ¾àÀë
+		//æ¯æ¬¡ç§»åŠ¨çš„è·ç¦»
 		movePDis = 5;
-		//¸²¸Ç°´Å¥µÄ¿í
+		//è¦†ç›–æŒ‰é’®çš„å®½
 		WidthOffset = 5;
 		
 		WindowManager wManager = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);    	
@@ -273,13 +273,13 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	
 	
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param widthMeasureSpec the width measure spec
 	 * @param heightMeasureSpec the height measure spec
 	 * @see android.view.View#onMeasure(int, int)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	@Override
@@ -296,7 +296,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param changed the changed
 	 * @param l the l
@@ -305,7 +305,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	 * @param b the b
 	 * @see android.view.ViewGroup#onLayout(boolean, int, int, int, int)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	@Override
@@ -363,7 +363,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 					public void run() {
 						if(a<moveWidth){
 							isAimationMoving = true;
-							//²»ÄÜĞ¡ÓÚmove_x   arg1ÊÇÒÆ¶¯¾àÀë£¬arg2ÊÇÊÇ·ñ½áÊøÁË
+							//ä¸èƒ½å°äºmove_x   arg1æ˜¯ç§»åŠ¨è·ç¦»ï¼Œarg2æ˜¯æ˜¯å¦ç»“æŸäº†
 							mHandler.sendEmptyMessage(0);
 							mHandler.postDelayed(this,0);
 						}else if(a==moveWidth){
@@ -400,10 +400,10 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	}
 	
 	/**
-	 * ÃèÊö£º¸Ä±äÊÂ¼ş.
+	 * æè¿°ï¼šæ”¹å˜äº‹ä»¶.
 	 *
 	 * @param switcherChangeListener the new switcher change listener
-	 * @date£º2012-8-8 ÏÂÎç3:53:00
+	 * @dateï¼š2012-8-8 ä¸‹åˆ3:53:00
 	 * @version v1.0
 	 */
 	public void setSwitcherChangeListener(AbOnChangeListener switcherChangeListener){
@@ -411,13 +411,13 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	}
 	
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param ev the ev
 	 * @return true, if successful
 	 * @see android.view.ViewGroup#dispatchTouchEvent(android.view.MotionEvent)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	@Override
@@ -428,13 +428,13 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	}
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param e the e
 	 * @return true, if successful
 	 * @see android.view.GestureDetector.OnGestureListener#onDown(android.view.MotionEvent)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	@Override
@@ -443,12 +443,12 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	}
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param e the e
 	 * @see android.view.GestureDetector.OnGestureListener#onShowPress(android.view.MotionEvent)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	@Override
@@ -456,13 +456,13 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	}
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param e the e
 	 * @return true, if successful
 	 * @see android.view.GestureDetector.OnGestureListener#onSingleTapUp(android.view.MotionEvent)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	@Override
@@ -484,7 +484,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 					    isAimationMoving = true;
 						mHandler.sendEmptyMessage(3);
 						mHandler.removeCallbacks(this);
-						//¹Ø
+						//å…³
 						mSwitcherChangeListener.onChange(0);
 					}else{
 						isAimationMoving = false;
@@ -508,7 +508,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 					    isAimationMoving = true;
 						mHandler.sendEmptyMessage(4);
 						mHandler.removeCallbacks(this);
-						//¿ª
+						//å¼€
 						mSwitcherChangeListener.onChange(1);
 					}else{
 						isAimationMoving = false;
@@ -522,7 +522,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	}
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param e1 the e1
 	 * @param e2 the e2
@@ -531,7 +531,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	 * @return true, if successful
 	 * @see android.view.GestureDetector.OnGestureListener#onScroll(android.view.MotionEvent, android.view.MotionEvent, float, float)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	@Override
@@ -541,12 +541,12 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	}
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param e the e
 	 * @see android.view.GestureDetector.OnGestureListener#onLongPress(android.view.MotionEvent)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	@Override
@@ -554,7 +554,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	}
 
 	/**
-	 * ÃèÊö£ºTODO.
+	 * æè¿°ï¼šTODO.
 	 *
 	 * @param e1 the e1
 	 * @param e2 the e2
@@ -563,7 +563,7 @@ public class AbSliderButton extends ViewGroup implements OnGestureListener{
 	 * @return true, if successful
 	 * @see android.view.GestureDetector.OnGestureListener#onFling(android.view.MotionEvent, android.view.MotionEvent, float, float)
 	 * @author: zhaoqp
-	 * @date£º2013-6-17 ÉÏÎç9:04:46
+	 * @dateï¼š2013-6-17 ä¸Šåˆ9:04:46
 	 * @version v1.0
 	 */
 	@Override

@@ -13,7 +13,7 @@ import com.ab.global.AbAppData;
 
 // TODO: Auto-generated Javadoc
 /**
- * ÃèÊö£º Êı¾İÏÂÔØÏß³Ì£¨°´¶ÓÁĞÏÂÔØ£©.
+ * æè¿°ï¼š æ•°æ®ä¸‹è½½çº¿ç¨‹ï¼ˆæŒ‰é˜Ÿåˆ—ä¸‹è½½ï¼‰.
  *
  * @author zhaoqp
  * @date 2011-11-10
@@ -27,13 +27,13 @@ public class AbHttpQueue extends Thread {
 	/** The Constant D. */
 	private static final boolean D = AbAppData.DEBUG;
 	
-	/** ÏÂÔØ¶ÓÁĞ. */
+	/** ä¸‹è½½é˜Ÿåˆ—. */
 	private List<AbHttpItem> mNetHttpList = null;
 	
-	/** ÏÂÔØÏß³Ìµ¥ÀıÀà. */
+	/** ä¸‹è½½çº¿ç¨‹å•ä¾‹ç±». */
 	private static AbHttpQueue mNetGetThread = null; 
 	
-	/** ÏÂÔØÍê³ÉºóµÄÏûÏ¢¾ä±ú. */
+	/** ä¸‹è½½å®Œæˆåçš„æ¶ˆæ¯å¥æŸ„. */
     private static Handler handler = new Handler() { 
         @Override 
         public void handleMessage(Message msg) { 
@@ -43,39 +43,39 @@ public class AbHttpQueue extends Thread {
     }; 
 	
 	/**
-	 * ¹¹ÔìÏÂÔØÏß³Ì¶ÓÁĞ.
+	 * æ„é€ ä¸‹è½½çº¿ç¨‹é˜Ÿåˆ—.
 	 */
     private AbHttpQueue() {
     	mNetHttpList = new ArrayList<AbHttpItem>();
     } 
     
     /**
-     * µ¥Àı¹¹ÔìÏÂÔØÏß³Ì.
+     * å•ä¾‹æ„é€ ä¸‹è½½çº¿ç¨‹.
      *
      * @return single instance of AbHttpQueue
      */
     public static AbHttpQueue getInstance() { 
         if (mNetGetThread == null) { 
         	mNetGetThread = new AbHttpQueue(); 
-            //´´½¨ºóÁ¢¿ÌÔËĞĞ
+            //åˆ›å»ºåç«‹åˆ»è¿è¡Œ
         	mNetGetThread.start(); 
         } 
         return mNetGetThread; 
     } 
     
     /**
-     * ¿ªÊ¼Ò»¸öÏÂÔØÈÎÎñ.
+     * å¼€å§‹ä¸€ä¸ªä¸‹è½½ä»»åŠ¡.
      *
-     * @param item ÏÂÔØµ¥Î»
+     * @param item ä¸‹è½½å•ä½
      */
     public void download(AbHttpItem item) { 
          addDownloadItem(item); 
     } 
     
     /**
-     * ¿ªÊ¼Ò»¸öÏÂÔØÈÎÎñ²¢Çå³ıÔ­À´¶ÓÁĞ.
+     * å¼€å§‹ä¸€ä¸ªä¸‹è½½ä»»åŠ¡å¹¶æ¸…é™¤åŸæ¥é˜Ÿåˆ—.
      *
-     * @param item ÏÂÔØµ¥Î»
+     * @param item ä¸‹è½½å•ä½
      */
     public void downloadBeforeClean(AbHttpItem item) { 
     	 mNetHttpList.clear();
@@ -83,18 +83,18 @@ public class AbHttpQueue extends Thread {
     } 
      
     /**
-     * ÃèÊö£ºÌí¼Óµ½ÏÂÔØÏß³Ì¶ÓÁĞ.
+     * æè¿°ï¼šæ·»åŠ åˆ°ä¸‹è½½çº¿ç¨‹é˜Ÿåˆ—.
      *
      * @param mNetHttp the m net http
      */
     private synchronized void addDownloadItem(AbHttpItem mNetHttp) { 
     	mNetHttpList.add(mNetHttp);
-        //Ìí¼ÓÁËÏÂÔØÏî¾Í¼¤»î±¾Ïß³Ì 
+        //æ·»åŠ äº†ä¸‹è½½é¡¹å°±æ¿€æ´»æœ¬çº¿ç¨‹ 
         this.notify();
     } 
  
     /**
-     * ÃèÊö£ºÏß³ÌÔËĞĞ.
+     * æè¿°ï¼šçº¿ç¨‹è¿è¡Œ.
      *
      * @see java.lang.Thread#run()
      */
@@ -103,17 +103,17 @@ public class AbHttpQueue extends Thread {
         while(true) { 
             while(mNetHttpList.size() > 0) { 
             	AbHttpItem item  = mNetHttpList.remove(0);
-            	//¶¨ÒåÁË»Øµ÷
+            	//å®šä¹‰äº†å›è°ƒ
                 if (item.callback != null) { 
                 	item.callback.get();
-                	//½»ÓÉUIÏß³Ì´¦Àí 
+                	//äº¤ç”±UIçº¿ç¨‹å¤„ç† 
                     Message msg = handler.obtainMessage(); 
                     msg.obj = item; 
                     handler.sendMessage(msg); 
                 } 
             } 
             try { 
-            	//Ã»ÓĞÏÂÔØÏîÊ±µÈ´ı 
+            	//æ²¡æœ‰ä¸‹è½½é¡¹æ—¶ç­‰å¾… 
                 synchronized(this) { 
                     this.wait();
                 } 

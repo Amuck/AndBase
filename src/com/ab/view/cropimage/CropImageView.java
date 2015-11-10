@@ -36,7 +36,7 @@ public class CropImageView extends CropViewBase {
     private CropImage mCropImage;
 
     /**
-     * ÃèÊö£ºTODO.
+     * æè¿°ï¼šTODO.
      *
      * @param changed the changed
      * @param left the left
@@ -45,7 +45,7 @@ public class CropImageView extends CropViewBase {
      * @param bottom the bottom
      * @see com.ab.view.cropimage.CropViewBase#onLayout(boolean, int, int, int, int)
      * @author: zhaoqp
-     * @date£º2013-6-17 ÉÏÎç9:04:49
+     * @dateï¼š2013-6-17 ä¸Šåˆ9:04:49
      * @version v1.0
      */
     @Override
@@ -73,14 +73,14 @@ public class CropImageView extends CropViewBase {
     }
 
     /**
-     * ÃèÊö£ºTODO.
+     * æè¿°ï¼šTODO.
      *
      * @param scale the scale
      * @param centerX the center x
      * @param centerY the center y
      * @see com.ab.view.cropimage.CropViewBase#zoomTo(float, float, float)
      * @author: zhaoqp
-     * @date£º2013-6-17 ÉÏÎç9:04:49
+     * @dateï¼š2013-6-17 ä¸Šåˆ9:04:49
      * @version v1.0
      */
     @Override
@@ -93,11 +93,11 @@ public class CropImageView extends CropViewBase {
     }
 
     /**
-     * ÃèÊö£ºTODO.
+     * æè¿°ï¼šTODO.
      *
      * @see com.ab.view.cropimage.CropViewBase#zoomIn()
      * @author: zhaoqp
-     * @date£º2013-6-17 ÉÏÎç9:04:49
+     * @dateï¼š2013-6-17 ä¸Šåˆ9:04:49
      * @version v1.0
      */
     @Override
@@ -110,11 +110,11 @@ public class CropImageView extends CropViewBase {
     }
 
     /**
-     * ÃèÊö£ºTODO.
+     * æè¿°ï¼šTODO.
      *
      * @see com.ab.view.cropimage.CropViewBase#zoomOut()
      * @author: zhaoqp
-     * @date£º2013-6-17 ÉÏÎç9:04:49
+     * @dateï¼š2013-6-17 ä¸Šåˆ9:04:49
      * @version v1.0
      */
     @Override
@@ -127,13 +127,13 @@ public class CropImageView extends CropViewBase {
     }
 
     /**
-     * ÃèÊö£ºTODO.
+     * æè¿°ï¼šTODO.
      *
      * @param deltaX the delta x
      * @param deltaY the delta y
      * @see com.ab.view.cropimage.CropViewBase#postTranslate(float, float)
      * @author: zhaoqp
-     * @date£º2013-6-17 ÉÏÎç9:04:49
+     * @dateï¼š2013-6-17 ä¸Šåˆ9:04:49
      * @version v1.0
      */
     @Override
@@ -175,13 +175,13 @@ public class CropImageView extends CropViewBase {
     }
 
     /**
-     * ÃèÊö£ºTODO.
+     * æè¿°ï¼šTODO.
      *
      * @param event the event
      * @return true, if successful
      * @see android.view.View#onTouchEvent(android.view.MotionEvent)
      * @author: zhaoqp
-     * @date£º2013-6-17 ÉÏÎç9:04:49
+     * @dateï¼š2013-6-17 ä¸Šåˆ9:04:49
      * @version v1.0
      */
     @Override
@@ -334,12 +334,12 @@ public class CropImageView extends CropViewBase {
     }
 
     /**
-     * ÃèÊö£ºTODO.
+     * æè¿°ï¼šTODO.
      *
      * @param canvas the canvas
      * @see android.widget.ImageView#onDraw(android.graphics.Canvas)
      * @author: zhaoqp
-     * @date£º2013-6-17 ÉÏÎç9:04:49
+     * @dateï¼š2013-6-17 ä¸Šåˆ9:04:49
      * @version v1.0
      */
     @Override
