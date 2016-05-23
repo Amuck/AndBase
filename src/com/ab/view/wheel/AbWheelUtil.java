@@ -68,8 +68,8 @@ public class AbWheelUtil {
 		mWheelViewY.setCyclic(true);// 可循环滚动
 		mWheelViewY.setLabel("年");  // 添加文字
 		mWheelViewY.setCurrentItem(defaultYear - startYear);// 初始化时显示的数据
-		mWheelViewY.setValueTextSize(32);
-		mWheelViewY.setLabelTextSize(30);
+		mWheelViewY.setValueTextSize(35);
+		mWheelViewY.setLabelTextSize(35);
 		mWheelViewY.setLabelTextColor(0x80000000);
 		//mWheelViewY.setCenterSelectDrawable(this.getResources().getDrawable(R.drawable.wheel_select));
 		
@@ -78,16 +78,16 @@ public class AbWheelUtil {
 		mWheelViewM.setCyclic(true);
 		mWheelViewM.setLabel("月");
 		mWheelViewM.setCurrentItem(defaultMonth-1);
-		mWheelViewM.setValueTextSize(32);
-		mWheelViewM.setLabelTextSize(30);
+		mWheelViewM.setValueTextSize(35);
+		mWheelViewM.setLabelTextSize(35);
 		mWheelViewM.setLabelTextColor(0x80000000);
 		//mWheelViewM.setCenterSelectDrawable(this.getResources().getDrawable(R.drawable.wheel_select));
 		
 		// 日
 		// 判断大小月及是否闰年,用来确定"日"的数据
-		if (list_big.contains(String.valueOf(month + 1))) {
+		if (list_big.contains(String.valueOf(month))) {
 			mWheelViewD.setAdapter(new AbNumericWheelAdapter(1, 31));
-		} else if (list_little.contains(String.valueOf(month + 1))) {
+		} else if (list_little.contains(String.valueOf(month))) {
 			mWheelViewD.setAdapter(new AbNumericWheelAdapter(1, 30));
 		} else {
 			// 闰年
@@ -100,8 +100,8 @@ public class AbWheelUtil {
 		mWheelViewD.setCyclic(true);
 		mWheelViewD.setLabel("日");
 		mWheelViewD.setCurrentItem(defaultDay - 1);
-		mWheelViewD.setValueTextSize(32);
-		mWheelViewD.setLabelTextSize(30);
+		mWheelViewD.setValueTextSize(35);
+		mWheelViewD.setLabelTextSize(35);
 		mWheelViewD.setLabelTextColor(0x80000000);
 		//mWheelViewD.setCenterSelectDrawable(this.getResources().getDrawable(R.drawable.wheel_select));
 		
@@ -110,6 +110,7 @@ public class AbWheelUtil {
 
 			public void onChanged(AbWheelView wheel, int oldValue, int newValue) {
 				int year_num = newValue + startYear;
+				int mDIndex = mWheelViewM.getCurrentItem();
 				// 判断大小月及是否闰年,用来确定"日"的数据
 				if (list_big.contains(String.valueOf(mWheelViewM.getCurrentItem() + 1))) {
 					mWheelViewD.setAdapter(new AbNumericWheelAdapter(1, 31));
@@ -121,6 +122,8 @@ public class AbWheelUtil {
 					else
 						mWheelViewD.setAdapter(new AbNumericWheelAdapter(1, 28));
 				}
+				mWheelViewM.setCurrentItem(mDIndex);
+				
 			}
 		};
 		// 添加"月"监听
@@ -140,6 +143,7 @@ public class AbWheelUtil {
 					else
 						mWheelViewD.setAdapter(new AbNumericWheelAdapter(1, 28));
 				}
+				mWheelViewD.setCurrentItem(0);
 			}
 		};
 		mWheelViewY.addChangingListener(wheelListener_year);
@@ -345,22 +349,22 @@ public class AbWheelUtil {
 		mText.setText(val);
 		
 		// 时
-		mWheelViewHH.setAdapter(new AbNumericWheelAdapter(1, 24));
+		mWheelViewHH.setAdapter(new AbNumericWheelAdapter(0, 23));
 		mWheelViewHH.setCyclic(true);
 		mWheelViewHH.setLabel("点");
-		mWheelViewHH.setCurrentItem(defaultHour-1);
-		mWheelViewHH.setValueTextSize(32);
-		mWheelViewHH.setLabelTextSize(30);
+		mWheelViewHH.setCurrentItem(defaultHour);
+		mWheelViewHH.setValueTextSize(35);
+		mWheelViewHH.setLabelTextSize(35);
 		mWheelViewHH.setLabelTextColor(0x80000000);
 		//mWheelViewH.setCenterSelectDrawable(this.getResources().getDrawable(R.drawable.wheel_select));
 		
 		// 分
-		mWheelViewMM.setAdapter(new AbNumericWheelAdapter(1, 60));
+		mWheelViewMM.setAdapter(new AbNumericWheelAdapter(0, 59));
 		mWheelViewMM.setCyclic(true);
 		mWheelViewMM.setLabel("分");
-		mWheelViewMM.setCurrentItem(defaultMinute-1);
-		mWheelViewMM.setValueTextSize(32);
-		mWheelViewMM.setLabelTextSize(30);
+		mWheelViewMM.setCurrentItem(defaultMinute);
+		mWheelViewMM.setValueTextSize(35);
+		mWheelViewMM.setLabelTextSize(35);
 		mWheelViewMM.setLabelTextColor(0x80000000);
 		//mWheelViewM.setCenterSelectDrawable(this.getResources().getDrawable(R.drawable.wheel_select));
 		
@@ -369,8 +373,8 @@ public class AbWheelUtil {
 			@Override
 			public void onClick(View v) {
 				activity.removeDialog(AbConstant.DIALOGBOTTOM);
-				int index2 = mWheelViewHH.getCurrentItem()+1;
-				int index3 = mWheelViewMM.getCurrentItem()+1;
+				int index2 = mWheelViewHH.getCurrentItem();
+				int index3 = mWheelViewMM.getCurrentItem();
 				String val = AbStrUtil.dateTimeFormat(index2+":"+index3) ;
 				mText.setText(val);
 			}
